@@ -41,8 +41,7 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor",
-                                    "enabled": false
+                                    "label": "&&Reopen Closed Editor"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -108,7 +107,8 @@
                     },
                     {
                         "id": "workbench.action.toggleAutoSave",
-                        "label": "A&&uto Save"
+                        "label": "A&&uto Save",
+                        "checked": true
                     },
                     {
                         "id": "submenuitem.26",
@@ -549,7 +549,7 @@
                     {
                         "id": "editor.action.toggleWordWrap",
                         "label": "Toggle &&Word Wrap",
-                        "enabled": false
+                        "checked": true
                     },
                     {
                         "id": "editor.action.toggleMinimap",
@@ -576,8 +576,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -586,8 +585,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1070,10 +1068,6 @@
                 "label": "Ctrl+S",
                 "userSettingsLabel": "ctrl+s"
             },
-            "workbench.action.files.saveAs": {
-                "label": "Ctrl+Shift+S",
-                "userSettingsLabel": "ctrl+shift+s"
-            },
             "workbench.action.openSettings": {
                 "label": "Ctrl+,",
                 "userSettingsLabel": "ctrl+,"
@@ -1360,10 +1354,6 @@
                 "label": "Ctrl+T",
                 "userSettingsLabel": "ctrl+t"
             },
-            "workbench.action.gotoSymbol": {
-                "label": "Ctrl+Shift+O",
-                "userSettingsLabel": "ctrl+shift+o"
-            },
             "editor.action.revealDefinition": {
                 "label": "F12",
                 "userSettingsLabel": "f12"
@@ -1471,8 +1461,8 @@
             "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
                 "mode": 0,
-                "x": 448,
-                "y": 193,
+                "x": 481,
+                "y": 588,
                 "width": 1024,
                 "height": 768
             }
