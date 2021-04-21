@@ -86,8 +86,8 @@
           @auth
             <li class="nav-item mr-1 dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('public/avatar').'/'.auth()->user()->avatar }}" alt="User" class="rounded-circle avatarUser" width="25" height="25" />
-                @php $name = explode(' ', auth()->user()->name); @endphp
+                <img src="{{ Auth::user()->avatar }}" alt="{{Auth::user()->name}}" class="rounded-circle avatarUser" width="25" height="25" />
+                @php $name = explode(' ', Auth::user()->name); @endphp
                 <span class="d-lg-none">{{ trans('users.my_profile') }}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right dd-menu-user" aria-labelledby="dropdown03">

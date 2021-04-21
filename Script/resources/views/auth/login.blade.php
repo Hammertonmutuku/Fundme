@@ -71,14 +71,22 @@
            <small><a href="{{url('/password/reset')}}">{{ trans('auth.forgot_password') }}</a></small>
          </div>
           <button type="submit" class="btn btn-block mt-2 py-2 btn-primary font-weight-light">{{ trans('auth.sign_in') }}</button>
+         
           @if ($settings->captcha == 'on')
             <small class="btn-block text-center">{{trans('misc.protected_recaptcha')}} <a href="https://policies.google.com/privacy" target="_blank">{{trans('misc.privacy')}}</a> - <a href="https://policies.google.com/terms" target="_blank">{{trans('misc.terms')}}</a></small>
           @endif
           <div class="text-center mt-2">
             <a href="{{url('register')}}">{{ trans('auth.not_have_account') }}</a>
           </div>
+          <a href="{{route('login.facebook')}}">login</a>
+          <a href="{{route('login.google')}}">login</a>
         </form>
+
+        <div> <button href="{{url('register')}}" type="submit" class="btn btn-block mt-2 py-2 btn-primary font-weight-light" >With Google</button> </div>
+        <div> <button type="submit" class="btn btn-block mt-2 py-2 btn-primary font-weight-light" href="{{ route('login.facebook') }}">With facebook</button> </div>
      </div><!-- Login Form -->
+     
+     
    </div><!-- /COL MD -->
   </div><!-- ./ -->
   </div><!-- ./ -->

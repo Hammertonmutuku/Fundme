@@ -34,15 +34,14 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
+    'google' => [
+                'client_id' => env('GOOGLE_CLIENT_ID'),
+                'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+                'redirect' => 'http://localhost/Fundme/Script/register/google/callback', // IMPORTANT NOT REMOVE /oauth/google/callback
+            ],
     'facebook' => [
-      'client_id' => "APP_ID", // configure with your app id
-      'client_secret' => 'APP_SECRET', // your app secret
-      'redirect' => 'http://YOURSITE.COM/oauth/facebook/callback', // IMPORTANT NOT REMOVE /oauth/facebook/callback
-      ],
-'google'=> [
-	         'client_id' => 'GOOGLE_CLIENT_ID',
-	         'client_secret' => 'GOOGLE_CLIENT_SECRET',
-	         'redirect' => 'http://YOURSITE.COM/oauth/google/callback', // IMPORTANT NOT REMOVE /oauth/google/callback
-				 ],
-			 ];
+                'client_id' => env('FACEBOOK_CLIENT_ID'),
+                'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+                'redirect' => 'http://localhost/Fundme/Script/login/facebook/callback', // IMPORTANT NOT REMOVE /oauth/google/callback
+            ],
+];

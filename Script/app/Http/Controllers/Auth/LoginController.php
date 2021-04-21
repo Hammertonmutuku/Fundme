@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 use App\Models\AdminSettings;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -134,5 +136,52 @@ class LoginController extends Controller
 	{
 		return trans('auth.error_logging');
 	}
+
+     //Google login
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+       $this->_registerOrLoginUser($user);
+       
+       return redirect()->intended('/');
+
+    }
+
+    //Facebook login
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+        $this->_registerOrLoginUser($user);
+       
+        return redirect()->intended('/');
+
+        
+    }
+
+    protected function _registerOrLoginUser($data)
+    {
+        $user = User::where('email', '=', '$data->email')->first();
+        if (!$user) {
+            $user = new user();
+            $user->name= $data->name;
+            $user->email = $data->email;
+            $user->provider_id = $data-> id;
+            $user->avatar = $data->avatar;
+            $user->save();
+
+        }
+
+        Auth::login($user);
+    }
 
 }

@@ -32,3 +32,9 @@
 [2021-04-19 10:04:47.585] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/onecentlin.laravel-blade-1.25.0/out/extension
 [2021-04-19 10:05:22.414] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"extensionId":{"value":"vscode.html-language-features","_lower":"vscode.html-language-features"},"activationEvent":"onLanguage:html"}
 [2021-04-19 10:05:22.414] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/62/usr/share/code/resources/app/extensions/html-language-features/client/dist/node/htmlClientMain
+[2021-04-19 15:14:02.758] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:json"}
+[2021-04-19 15:14:02.763] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/62/usr/share/code/resources/app/extensions/extension-editing/dist/extensionEditingMain
+[2021-04-19 15:14:02.824] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":false,"extensionId":{"value":"vscode.npm","_lower":"vscode.npm"},"activationEvent":"onLanguage:json"}
+[2021-04-19 15:14:02.824] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/62/usr/share/code/resources/app/extensions/npm/dist/npmMain
+[2021-04-19 17:37:28.085] [exthost] [info] extension host terminating: received terminate message from renderer
+[2021-04-19 17:37:29.145] [exthost] [info] exiting with code 0
