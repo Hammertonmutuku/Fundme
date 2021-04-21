@@ -78,14 +78,14 @@
           <div class="text-center mt-2">
             <a href="{{url('register')}}">{{ trans('auth.not_have_account') }}</a>
           </div>
-          <a href="{{route('login.facebook')}}">login</a>
-          <a href="{{route('login.google')}}">login</a>
         </form>
-
-        <div> <button href="{{url('register')}}" type="submit" class="btn btn-block mt-2 py-2 btn-primary font-weight-light" >With Google</button> </div>
-        <div> <button type="submit" class="btn btn-block mt-2 py-2 btn-primary font-weight-light" href="{{ route('login.facebook') }}">With facebook</button> </div>
+       
      </div><!-- Login Form -->
-     
+     <div class="text-center mt-2 ">
+      <p>or login with </p>
+    </div>
+    <a href="{{route('login.google')}}" ><i class="fab fa-google  icon  fa-4x p-3"></i></a>
+    <a href="{{route('login.facebook')}}"><i class="fab fa-facebook icon  fa-4x p-3"></i></a>
      
    </div><!-- /COL MD -->
   </div><!-- ./ -->

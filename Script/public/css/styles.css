@@ -224,6 +224,9 @@ button:active.btn-trans {
     border: 2px solid #f45302;
     color: #FFF;
 }
+.icon{
+  color: #f45302;
+}
 /************ Version 1.5 **************/
 .truncate {
 	white-space: normal !important;
