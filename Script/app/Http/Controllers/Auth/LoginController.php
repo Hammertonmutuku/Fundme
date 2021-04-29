@@ -170,16 +170,29 @@ class LoginController extends Controller
 
     protected function _registerOrLoginUser($data)
     {
-        $user = User::where('email', '=', '$data->email')->first();
+        $user = User::where('email', '=', $data->email)->first();
         if (!$user) {
             $user = new user();
             $user->name= $data->name;
             $user->email = $data->email;
             $user->provider_id = $data-> id;
-            $user->avatar = $data->avatar;
-            $user->save();
+            // $user->avatar = $data->avatar;
+            $user -> email_verified_at=  date('Y-m-d H:i:s');
+            $user ->status = 'active';
 
-        }
+            if ($data->avatar) {
+                $filename = "public/avatar".time().".jpg"; 
+
+                // The filename to save in the database.
+                $current= file_get_contents($data ->avatar );
+             file_put_contents($filename, $current );
+            
+            
+            }
+           $user->avatar = $data->avatar;
+          
+            $user->save();
+     }
 
         Auth::login($user);
     }

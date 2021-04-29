@@ -22,7 +22,7 @@
   <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 @if(request()->path() == '/') scroll @else shadow-sm bg-dark @endif">
     <div class="container d-flex font-weight-bold">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset('public/img/logo.png') }}" style="max-width: 100px;"class="align-baseline" alt="{{$settings->title}}" />
+        <img src="{{ asset('public/img/Msaada2.png') }}" style="max-width: 200px;"class="align-baseline" alt="{{$settings->title}}" />
       </a>
       <ul class="navbar-nav ml-auto d-lg-none">
         <li class="nav-item">
@@ -86,7 +86,11 @@
           @auth
             <li class="nav-item mr-1 dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ Auth::user()->avatar }}" alt="{{Auth::user()->name}}" class="rounded-circle avatarUser" width="25" height="25" />
+                
+              
+                <img src="{{ asset('public/avatar')}}/{{auth()->user()->avatar == '' ? 'default.jpg' : auth()->user() ->avatar }}"  class="rounded-circle avatarUser" width="25" height="25" />
+              
+                {{-- {{Auth::user()->name}} --}}
                 @php $name = explode(' ', Auth::user()->name); @endphp
                 <span class="d-lg-none">{{ trans('users.my_profile') }}</span>
               </a>

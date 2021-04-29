@@ -43,7 +43,9 @@
           <input type="file" name="photo" id="uploadAvatar" accept="image/*" style="visibility: hidden;">
           @endif
 
-    			<img src="{{ asset('public/avatar').'/'.Auth::user()->avatar }}" alt="User" width="125" height="125" class="rounded-circle avatarUser"  />
+		  {{-- <img src="{{Auth::user()->avatar }}" alt="User" width="125" height="125" class="rounded-circle avatarUser"  /> --}}
+
+		  <img src="{{ asset('public/avatar')}}/{{auth()->user()->avatar == '' ? 'default.jpg' : auth()->user() ->avatar }}"  class="rounded-circle avatarUser" width="125" height="125" />
     		</div>
 			</form><!-- *********** AVATAR ************* -->
 
