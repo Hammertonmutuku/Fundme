@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/pinchafrica/fundme/
+    - export DEPLOYPATH=/home/pinchafrica/public_html/
     - /bin/cp -R * $DEPLOYPATH
