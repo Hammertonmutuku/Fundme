@@ -142,7 +142,14 @@
   	</small>
 
     <hr>
-
+    <div class= "row">
+      <div class = "col">
+    <img src="{{ asset('public/payments/mpesa.png') }}"  width="225" height="125" />
+      </div>
+      <div class = "col">
+        <a href="{{ route('payment') }}"><img src="{{ asset('public/payments/paypal2.png') }}"  width="225" height="125" id= "paypal-button"/></a>
+          </div>
+    </div>
   <!-- form start -->
  <form method="POST" action="{{ url('donate', $response->id) }}" enctype="multipart/form-data" id="formDonation">
 
@@ -184,6 +191,7 @@
 
            <div class="form-row form-group">
                <!-- Start -->
+               
                  <div class="col">
                    <label>{{ trans('misc.country') }}</label>
                      <select id="country" name="country" class="custom-select" >
@@ -210,10 +218,9 @@
                  <!-- Start -->
                    <div class="form-group">
                      <label>{{ trans('misc.payment_gateway') }}</label>
-
                          @foreach (PaymentGateways::where('enabled', '1')->orderBy('type')->get(); as $payment)
-
-                           @php
+                            
+                         <?php
 
                            if($payment->type == 'card' ) {
 
@@ -224,7 +231,8 @@
                              $paymentName = '<i class="fa fa-wallet mr-1"></i> '.trans('misc.pay_through').' '.$payment->name;
                            }
 
-                           @endphp
+                          ?>
+
                          <div class="custom-control custom-radio mb-2">
                           <input @if (PaymentGateways::where('enabled', '1')->count() == 1) checked @endif type="radio" id="payment_gateway{{$payment->id}}" name="payment_gateway" value="{{$payment->id}}" class="custom-control-input paymentGateway">
                           <label class="custom-control-label" for="payment_gateway{{$payment->id}}">{!! $paymentName !!}</label>

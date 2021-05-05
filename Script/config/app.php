@@ -156,6 +156,9 @@ return [
          * Package Service Providers...
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        // Paypall
+     
 
         /*
          * Application Service Providers...
@@ -222,6 +225,8 @@ return [
         'Purify' => Stevebauman\Purify\Facades\Purify::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'PaymentGateways' => App\Models\PaymentGateways::class,
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        
 
     ],
 

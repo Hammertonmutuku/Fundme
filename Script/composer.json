@@ -22,8 +22,10 @@
         "league/color-extractor": "0.3.*",
         "league/flysystem-aws-s3-v3": "^1.0",
         "mollie/laravel-mollie": "^2.0",
+        "paypal/rest-api-sdk-php": "^1.14",
         "razorpay/razorpay": "^2.5",
         "spatie/flysystem-dropbox": "^1.2",
+        "srmklive/paypal": "~1.0",
         "stevebauman/purify": "^3.0",
         "unicodeveloper/laravel-paystack": "1.0.*"
     },

@@ -26,8 +26,8 @@
     @if (auth()->user()->status == 'active')
     <!-- form start -->
     <form method="POST" action="{{ url('create/campaign') }}" enctype="multipart/form-data" id="formUpload">
-
-    	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+     
+     <input type="hidden" name="_token" value="{{ csrf_token() }}">   
 		<div class="filer-input-dragDrop position-relative" id="draggable">
 			<input type="file" accept="image/*" name="photo" id="filePhoto">
 
@@ -121,6 +121,7 @@
                       {{ trans('misc.create_campaign') }}
                     </button>
                   </div><!-- /.box-footer -->
+            
                 </form>
 
                 @else
@@ -131,6 +132,8 @@
 
 	   <h3 class="margin-top-none text-center no-result no-result-mg">
 	    	{{trans('misc.confirm_email')}} <strong>{{Auth::user()->email}}</strong>
+        {{ __('Before proceeding, please check your email for a verification link.') }}
+        {{ __('If you did not receive the email') }}, <a href="{{ route('verify/account/{confirmation_code}') }}">{{ __('click here to request another') }}</a>.
 	    	</h3>
 
                 @endif

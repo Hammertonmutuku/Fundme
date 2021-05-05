@@ -58,7 +58,7 @@
             <div class="form-group has-feedback">
             	<label>{{ trans('misc.full_name_misc') }}</label>
               <input type="text" class="form-control" value="{{ e( auth()->user()->name ) }}" name="full_name" placeholder="{{ trans('misc.full_name_misc') }}" title="{{ trans('misc.full_name_misc') }}" autocomplete="off">
-             </div><!-- ***** Form Group ***** -->
+             </div><!-- ***** Form Group ***** --> 
 
 			<!-- ***** Form Group ***** -->
             <div class="form-group">

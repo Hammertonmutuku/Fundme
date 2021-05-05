@@ -26,7 +26,7 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                <tbody>
-
+               
                	@if( $data->total() !=  0 && $data->count() != 0 )
                    <tr>
                       <th class="active">ID</th>

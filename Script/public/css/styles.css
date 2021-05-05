@@ -26,6 +26,13 @@ body {
   font-family: 'Barlow', Helvetica, Arial, sans-serif;
 }
 
+.pt-3, .py-3 {
+  padding-top: 0.0005rem!important;
+}
+.pb-3, .py-3 {
+  padding-bottom: 0.0005rem!important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800 !important;;
 }

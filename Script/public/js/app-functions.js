@@ -543,7 +543,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 				(function(){
 					 $("#formUpload").ajaxForm({
-					 dataType : 'json',
+                     dataType : 'json',
 					 error: function(responseText, statusText, xhr, $form) {
 					 	element.html(create);
 					 	element.removeAttr('disabled');
@@ -559,6 +559,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
 					 //===== SUCCESS =====//
 					 if( result.success != false ) {
+						
 					 	window.location.href = result.target;
 						}//<-- e
 					else {

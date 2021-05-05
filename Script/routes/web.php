@@ -150,6 +150,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	//<-------------- Create Campaign
 	Route::get('create/campaign', function(){
+	
 	return view('campaigns.create');
 	});
 	//  Post
@@ -488,3 +489,7 @@ Route::get('panel/admin/blog/{id}','AdminController@editBlog')->middleware('role
 Route::post('panel/admin/blog/update','AdminController@updateBlog')->middleware('role');
 
 Route::post('ajax/upload/image', 'AdminController@uploadImageEditor')->name('upload.image')->middleware('role');
+
+Route::get('payment', 'PayPalController@payment')->name('payment');
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+Route::get('payment/success', 'PayPalController@success')->name('payment.success');
