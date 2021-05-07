@@ -181,15 +181,16 @@ class LoginController extends Controller
             $user ->status = 'active';
 
             if ($data->avatar) {
-                $filename = "public/avatar".time().".jpg"; 
-
+                $filename = "public/avatar/".time().".jpg"; 
+                $fm = time().".jpg";
                 // The filename to save in the database.
                 $current= file_get_contents($data ->avatar );
              file_put_contents($filename, $current );
             
             
             }
-           $user->avatar = $data->avatar;
+         
+           $user->avatar = $fm;
           
             $user->save();
      }

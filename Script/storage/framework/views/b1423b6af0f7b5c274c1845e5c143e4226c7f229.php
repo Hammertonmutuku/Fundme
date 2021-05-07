@@ -7,7 +7,7 @@
 		<meta name="csrf-token" content="<?php echo e(csrf_token(), false); ?>">
 		<meta name="description" content="<?php echo $__env->yieldContent('description_custom'); ?><?php echo e($settings->description, false); ?>">
 		<meta name="keywords" content="<?php echo e($settings->keywords, false); ?>" />
-		<link rel="shortcut icon" href="<?php echo e(asset('public/img/favicon.png'), false); ?>" />
+		<link rel="shortcut icon" href="<?php echo e(asset('public/img/favicon.ico'), false); ?>" />
 		<title><?php $__env->startSection('title'); ?><?php echo $__env->yieldSection(); ?> <?php if(isset($settings->title)): ?><?php echo e($settings->title, false); ?><?php endif; ?></title>
 
 		<?php echo $__env->make('includes.css_general', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

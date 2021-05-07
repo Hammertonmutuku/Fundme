@@ -585,7 +585,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1460,9 +1461,9 @@
             "folder": "file:///opt/lampp/htdocs/Fundme",
             "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
-                "mode": 0,
-                "x": 356,
-                "y": 239,
+                "mode": 1,
+                "x": 1,
+                "y": 38,
                 "width": 1386,
                 "height": 752
             }

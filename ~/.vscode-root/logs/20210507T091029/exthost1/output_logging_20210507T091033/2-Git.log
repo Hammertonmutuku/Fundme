@@ -1,0 +1,14 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+> git cat-file -s 389bdf768a2e704b0bb0214e12581b88fe99a4f9

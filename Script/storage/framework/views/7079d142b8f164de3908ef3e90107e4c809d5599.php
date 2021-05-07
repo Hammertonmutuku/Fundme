@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 <?php if(request()->path() == '/'): ?> scroll <?php else: ?> shadow-sm bg-dark <?php endif; ?>">
     <div class="container d-flex font-weight-bold">
       <a class="navbar-brand" href="<?php echo e(url('/'), false); ?>">
-        <img src="<?php echo e(asset('public/img/Msaada2.png'), false); ?>" style="max-width: 150px;"class="align-baseline" alt="<?php echo e($settings->title, false); ?>" />
+        <img src="<?php echo e(asset('public/img/rsz_1rsz_msaada2.png'), false); ?>" style="max-width: 130px; "class="align-baseline" alt="<?php echo e($settings->title, false); ?>" />
       </a>
       <ul class="navbar-nav ml-auto d-lg-none">
         <li class="nav-item">
@@ -91,8 +91,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 
               
-                <img src="<?php echo e(asset('public/avatar'), false); ?>/<?php echo e(auth()->user()->avatar == '' ? 'default.jpg' : auth()->user() ->avatar, false); ?>"  class="rounded-circle avatarUser" width="25" height="25" />
-              
+                <img src="<?php echo e(asset('public/avatar'), false); ?>/<?php echo e(auth()->user()->avatar == '' ? 'default.jpg': auth()->user()->avatar, false); ?>"  class="rounded-circle avatarUser" width="25" height="25" />
                 
                 <?php $name = explode(' ', Auth::user()->name); ?>
                 <span class="d-lg-none"><?php echo e(trans('users.my_profile'), false); ?></span>

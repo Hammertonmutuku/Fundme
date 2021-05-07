@@ -1,0 +1,139 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/default/donate.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/default/donate.blade.php
+> git cat-file -s 0ef7897982a291a8343e2a139b728c557f2c473b
+> git show --textconv :Script/resources/views/default/gallery-photo.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/default/gallery-photo.blade.php
+> git cat-file -s fe7f076b231dd88a52f729d49bb894e2893fc9bd
+> git show --textconv :Script/resources/views/default/search.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/default/search.blade.php
+> git cat-file -s 83fa7b4f6b84703db50a7cd8f2f8059e6412f707
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/default/donate.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/default/donate.blade.php
+> git cat-file -s 0ef7897982a291a8343e2a139b728c557f2c473b
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/app/Http/Controllers/PayPalController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/PayPalController.php
+> git cat-file -s d29bbab0a3ea98965d21a1990488a5ecaf74a3b9
+> git show --textconv :Script/app/Http/Controllers/Auth/LoginController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/Auth/LoginController.php
+> git cat-file -s e31bf813bff3dc2d0832c026744585c3836cf702
+> git show --textconv :Script/app/Http/Controllers/PayPalController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/PayPalController.php
+> git cat-file -s d29bbab0a3ea98965d21a1990488a5ecaf74a3b9
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/app/Http/Controllers/Auth/ConfirmPasswordController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/Auth/ConfirmPasswordController.php
+> git cat-file -s 3559954c6803fef3adc45979308cc36e6d37385f
+> git show --textconv :Script/app/Http/Controllers/Auth/VerificationController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/Auth/VerificationController.php
+> git cat-file -s dca8d9e7a6bd04776c7b3d1dc9c0086bb732e409
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/app/Http/Controllers/BankTransferController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/BankTransferController.php
+> git cat-file -s 2654a804e0c571bd40bd67283b68f01d22661238
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/app/Http/Kernel.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Kernel.php
+> git cat-file -s b76dd506ec2e2d442d01e81616726249ae3ba22a
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/app/Http/Controllers/Auth/ConfirmPasswordController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/Auth/ConfirmPasswordController.php
+> git cat-file -s 3559954c6803fef3adc45979308cc36e6d37385f
+> git show --textconv :Script/app/Http/Controllers/Auth/ForgotPasswordController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/Auth/ForgotPasswordController.php
+> git cat-file -s 557fbeb3399a4834c0ae8741f6a9a62bd356c2e4
+> git show --textconv :Script/app/Http/Controllers/AjaxController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/AjaxController.php
+> git cat-file -s 7b3be88e82907546ad25b778f97bba0120593c9b
+> git show --textconv :Script/app/Http/Controllers/AdminController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/AdminController.php
+> git cat-file -s b94f00c1f65e6821f665c3a6dd16c1abc7961f00
+> git show --textconv :Script/app/Models/Categories.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Models/Categories.php
+> git cat-file -s c203decb180581852858111076954018e92b09e9
+> git show --textconv :Script/app/Models/Countries.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Models/Countries.php
+> git cat-file -s fcb661694cf15264eaf28ea212f816167818c893
+> git show --textconv :Script/app/Models/User.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Models/User.php
+> git cat-file -s 7ceb3ab106849cda2a4f3f042c0190b28af011bf
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /opt/lampp/htdocs/Fundme/Script/app/Models/User.php
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+> git cat-file -s 389bdf768a2e704b0bb0214e12581b88fe99a4f9
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
