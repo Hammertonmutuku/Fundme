@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+ 
+Route::post('validation', 'MpesaResponses@validation');
+Route::post('confirmation', 'MpesaResponses@confirmation');
+Route::get('stkpush', 'MpesaController@stkPush');

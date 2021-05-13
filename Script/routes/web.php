@@ -14,6 +14,8 @@
  | Index
  |-----------------------------------
  */
+
+
 Route::get('/', 'HomeController@index');
 
 Route::get('home', function(){
@@ -490,6 +492,6 @@ Route::post('panel/admin/blog/update','AdminController@updateBlog')->middleware(
 
 Route::post('ajax/upload/image', 'AdminController@uploadImageEditor')->name('upload.image')->middleware('role');
 
-Route::get('payment', 'PayPalController@payment')->name('payment');
-Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
-Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+Route::post('get-token', 'MpesaController@getAccessToken');
+Route::post('registerUrls', 'MpesaController@registerUrls');
+Route::post('stkpush', 'MpesaController@stkPush');

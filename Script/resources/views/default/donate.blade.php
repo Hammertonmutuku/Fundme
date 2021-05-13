@@ -142,15 +142,55 @@
   	</small>
 
     <hr>
-    <div class= "row">
-      <div class = "col">
-    <img src="{{ asset('public/payments/mpesa.png') }}"  width="225" height="125" />
-      </div>
-      <div class = "col">
-        <a href="{{ route('payment') }}"><img src="{{ asset('public/payments/paypal2.png') }}"  width="225" height="125" id= "paypal-button"/></a>
-          </div>
-    </div>
+ 
   <!-- form start -->
+  <div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      Obtain Access Token
+    </div>
+    <h4 id = "access_token"></h4>
+    <div class="card-body">
+      <button class= "btn btn-primary" id="getaccesstoken">Request Access Token</button>
+    </div>
+  </div>
+</div>
+  <div class="card mt-5">
+  <div class="card-body">
+    <div class="card-header">
+      Register URLS
+    </div>
+    <div class="card-body">
+      <button class= "btn btn-primary" id="registerUrls" >Register URLs</button>
+    </div>
+  </div>
+  </div>
+  <div class="card mt-5">
+    <div class="card-body">
+      <div class="card-header">
+        Stk push
+      </div>
+      <div class="card-body">
+        <form action="">
+          <div id="c2b_response"></div>
+          @csrf
+          <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" name="phone" class="form-control" id="phone">
+          </div>
+          <div class="form-group">
+              <label for="amount">Amount</label>
+              <input type="number" name="amount" class="form-control" id="amount">
+          </div>
+          <div class="form-group">
+              <label for="account">Account</label>
+              <input type="text" name="account" class="form-control" id="account">
+          </div>
+          <button id="stkpush" class="btn btn-primary">Stk push</button>
+      </form>
+      </div>
+    </div>
+    </div>
  <form method="POST" action="{{ url('donate', $response->id) }}" enctype="multipart/form-data" id="formDonation">
 
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -317,8 +357,55 @@
 @section('javascript')
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src='https://js.paystack.co/v1/inline.js'></script>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+
+
+document.getElementById('getaccesstoken').addEventListener('click', (event) => {
+  event.preventDefault()
+
+  axios.post('http://localhost/Fundme/Script/get-token', {})
+  .then((response) => {
+    console.log(response);
+    document.getElementById('access_token').innerHTML = response.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+})
+
+document.getElementById('registerUrls').addEventListener('click', (event) => {
+  event.preventDefault()
+
+  axios.post('http://localhost/Fundme/Script/registerUrls', {})
+  .then((response) => {
+    console.log(response.data);
+  }) 
+  .catch((error) => {
+    console.log(error);
+  })
+})
+document.getElementById('stkpush').addEventListener('click', (event) => {
+    event.preventDefault()
+
+    const requestBody = {
+        amount: document.getElementById('amount').value,
+        account: document.getElementById('account').value,
+        phone: document.getElementById('phone').value
+    }
+
+    axios.post('http://localhost/Fundme/Script/stkpush', requestBody)
+    .then((response) => {
+        if(response.data.ResponseDescription){
+            document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+        } else {
+            document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+})
 
 $(document).ready(function() {
 
