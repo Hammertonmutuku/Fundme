@@ -162,6 +162,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
        
+        
         $this->_registerOrLoginUser($user);
        
         return redirect()->intended('/');
@@ -172,20 +173,22 @@ class LoginController extends Controller
     protected function _registerOrLoginUser($data)
     {
         $user = User::where('email', '=', $data->email)->first();
+       
+        
         if (!$user) {
             $user = new user();
             $user->name= $data->name;
             $user->email = $data->email;
             $user->provider_id = $data-> id;
-           // $user->avatar = $data->avatar."&access_token={$user->token}";
             $user -> email_verified_at=  date('Y-m-d H:i:s');
             $user ->status = 'active';
 
-            if ($data->avatar) {
+        
+            if ( $data->avatar) {
                 $filename = "public/avatar/".time().".jpg"; 
-                $fm = time().".jpg";
+                $fm =time().".jpg";
                 // The filename to save in the database.
-                $current= file_get_contents($data ->avatar );
+                $current= file_get_contents($data ->avatar."&access_token={$data->token}" );
              file_put_contents($filename, $current );
             
             

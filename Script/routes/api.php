@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  
 Route::post('validation', 'MpesaResponses@validation');
 Route::post('confirmation', 'MpesaResponses@confirmation');
+Route::post('stkpush', 'MpesaResponses@stkPush');
 Route::get('stkpush', 'MpesaController@stkPush');

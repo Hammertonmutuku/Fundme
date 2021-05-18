@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<div class="py-5 bg-dark-2 text-light">
+<div class="py-5 bg-success text-light">
 <footer class="container">
   <div class="row">
     <div class="col-md-3">
@@ -57,7 +57,7 @@
 </footer>
 </div>
 
-<footer class="py-2 bg-dark-3 text-muted">
+<footer class="py-2 bg-success text-muted">
   <div class="container">
     <div class="row">
       <div class="col-md-6 copyright">

@@ -65,38 +65,25 @@ class MpesaController extends Controller
  }
   
  public function stkPush(Request $request)
- {
-     $timestamp = date('Ymdhis');
-     $password = env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp;
+ {   
+  $timestamp = date('Ymdhis');
+  $password = base64_encode(env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp);
+ 
+  $curl_post_data = array(
+    'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
+    'Password' => $password,
+    'Timestamp' => $timestamp,
+    'TransactionType' => 'CustomerPayBillOnline',
+    'Amount' => $request->amount,
+    'PartyA' => $request->phone,
+    'PartyB' => env('MPESA_STK_SHORTCODE'),
+    'PhoneNumber' => $request->phone,
+    'CallBackURL' => env('MPESA_TEST_URL'). '/stkpush',
+    'AccountReference' => $request->account,
+    'TransactionDesc' => $request->account
+  );
 
-    //  $curl_post_data = array(
-    //      'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
-    //      'Password' => $password,
-    //      'Timestamp' => $timestamp,
-    //      'TransactionType' => 'CustomerPayBillOnline',
-    //      'Amount' => $request->amount,
-    //      'PartyA' => $request->phone,
-    //      'PartyB' => env('MPESA_STK_SHORTCODE'),
-    //      'PhoneNumber' => $request->phone,
-    //      'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpush',
-    //      'AccountReference' => $request->account,
-    //      'TransactionDesc' => $request->account
-    //    );
-
-       $curl_post_data = array(
-        //Fill in the request parameters with valid values
-        'BusinessShortCode' => env('MPESA_STK_SHORTCODE'),
-        'Password' => $password,
-        'Timestamp' => $timestamp,
-        'TransactionType' => 'CustomerPayBillOnline',
-        'Amount' => $request->amount,
-        'PartyA' => $request->phone,
-        'PartyB' => env('MPESA_STK_SHORTCODE'),
-        'PhoneNumber' => $request->phone,
-        'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpush',
-        'AccountReference' => $request->account,
-        'TransactionDesc' => $request->account
-      );
+      
 
      $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 

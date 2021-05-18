@@ -156,7 +156,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        Knox\Pesapal\PesapalServiceProvider::class,
         // Paypall
      
 
@@ -226,6 +226,7 @@ return [
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'PaymentGateways' => App\Models\PaymentGateways::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        'Pesapal' => Knox\Pesapal\PesapalServiceProvider::class,
         
 
     ],

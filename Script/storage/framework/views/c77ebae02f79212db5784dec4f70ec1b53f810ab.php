@@ -181,17 +181,21 @@
 	</div>
 	<?php endif; ?>
 
-  <div class="jumbotron m-0 text-white text-center position-relative rounded-0">
+  <div class="jumbotron m-0 text-white text-center position-relative rounded-0 align-items-center">
     <div class="parallax-cover bg-cover" style="background-image: url('public/img/cover.jpg')"></div>
     <div class="container position-relative">
       <h1><?php echo e(trans('misc.title_cover_bottom'), false); ?></h1>
       <p><?php echo e($settings->welcome_subtitle, false); ?></p>
       <p><a class="btn btn-primary p-2 px-5 btn-lg" href="<?php echo e(url('create/campaign'), false); ?>" role="button"><?php echo e(trans('misc.create_campaign'), false); ?></a></p>
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Its high time both leaders square up and table their issues especially Raila and find a long lasting solution to this sufferings. Kenya needs to get back on its feet and lead an example not a lesson...We Are One!<br>Heartfelt condolences to all those afftected!<a href="https://twitter.com/hashtag/StopEthnicCleansing?src=hash&amp;ref_src=twsrc%5Etfw">#StopEthnicCleansing</a></p>&mdash; MsaadaKE (@MsaadaKE) <a href="https://twitter.com/MsaadaKE/status/932592713047912448?ref_src=twsrc%5Etfw">November 20, 2017</a></blockquote>
+      </div>
     </div>
+    
   </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('javascript'); ?>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<script type="text/javascript">
 
     pagination('<?php echo e(url("ajax/campaigns"), false); ?>?page=', '<?php echo e(trans('misc.error'), false); ?>');

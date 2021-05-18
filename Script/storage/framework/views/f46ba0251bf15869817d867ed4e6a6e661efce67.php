@@ -363,30 +363,30 @@
 <script type="text/javascript">
 
 
-document.getElementById('getaccesstoken').addEventListener('click', (event) => {
-  event.preventDefault()
+// document.getElementById('getaccesstoken').addEventListener('click', (event) => {
+//   event.preventDefault()
 
-  axios.post('http://localhost/Fundme/Script/get-token', {})
-  .then((response) => {
-    console.log(response);
-    document.getElementById('access_token').innerHTML = response.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-})
+//   axios.post('http://localhost/Fundme/Script/get-token', {})
+//   .then((response) => {
+//     console.log(response);
+//     document.getElementById('access_token').innerHTML = response.data
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+// })
 
-document.getElementById('registerUrls').addEventListener('click', (event) => {
-  event.preventDefault()
+// document.getElementById('registerUrls').addEventListener('click', (event) => {
+//   event.preventDefault()
 
-  axios.post('http://localhost/Fundme/Script/registerUrls', {})
-  .then((response) => {
-    console.log(response.data);
-  }) 
-  .catch((error) => {
-    console.log(error);
-  })
-})
+//   axios.post('http://localhost/Fundme/Script/registerUrls', {})
+//   .then((response) => {
+//     console.log(response.data);
+//   }) 
+//   .catch((error) => {
+//     console.log(error);
+//   })
+// })
 document.getElementById('stkpush').addEventListener('click', (event) => {
     event.preventDefault()
 

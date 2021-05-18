@@ -61,47 +61,47 @@ class PayPalController extends Controller
     	]);
     }
 
-    // public function paypalIpn() {
+    public function paypalIpn() {
 
-	// 	$ipn = new PaypalIPNListener();
+		$ipn = new PaypalIPNListener();
 
-    // $payment = PaymentGateways::find(1);
+    $payment = PaymentGateways::find(1);
 
-	// 	if ($payment->sandbox) {
-	// 		// SandBox
-	// 		$ipn->use_sandbox = true;
-	// 		} else {
-	// 		// Real environment
-	// 		$ipn->use_sandbox = false;
-	// 		}
+		if ($payment->sandbox) {
+			// SandBox
+			$ipn->use_sandbox = true;
+			} else {
+			// Real environment
+			$ipn->use_sandbox = false;
+			}
 
-	//     $verified = $ipn->processIpn();
+	    $verified = $ipn->processIpn();
 
-	// 	$custom  = $_POST['custom'];
-	// 	parse_str($custom, $donation);
+		$custom  = $_POST['custom'];
+		parse_str($custom, $donation);
 
-	// 	$payment_status = $_POST['payment_status'];
-	// 	$txn_id         = $_POST['txn_id'];
-	// 	$amount         = $_POST['mc_gross'];
+		$payment_status = $_POST['payment_status'];
+		$txn_id         = $_POST['txn_id'];
+		$amount         = $_POST['mc_gross'];
 
 
-	//     if ($verified) {
-	//         if($payment_status == 'Completed') {
+	    if ($verified) {
+	        if($payment_status == 'Completed') {
 
-	//           // Check outh POST variable and insert in DB
-	//           $verifiedTxnId = Donations::where('txn_id', $txn_id)->first();
+	          // Check outh POST variable and insert in DB
+	          $verifiedTxnId = Donations::where('txn_id', $txn_id)->first();
 
-	// 		if(!isset($verifiedTxnId)) {
+			if(!isset($verifiedTxnId)) {
 
-	// 		   	$sql = new Donations;
-	// 	      $sql->campaigns_id = $donation['id'];
-	// 			  $sql->txn_id       = $txn_id;
-	// 			  $sql->fullname     = $donation['fn'];
-	// 			  $sql->email        = $donation['mail'];
-	// 			  $sql->country      = $donation['cc'];
-	// 			  $sql->postal_code  = $donation['pc'];
-	// 			  $sql->donation     = $amount;
-	/			  $sql->payment_gateway = 'PayPal';
+			   	$sql = new Donations;
+		      $sql->campaigns_id = $donation['id'];
+				  $sql->txn_id       = $txn_id;
+				  $sql->fullname     = $donation['fn'];
+				  $sql->email        = $donation['mail'];
+				  $sql->country      = $donation['cc'];
+				  $sql->postal_code  = $donation['pc'];
+				  $sql->donation     = $amount;
+				  $sql->payment_gateway = 'PayPal';
 				  $sql->comment      = $donation['cm'];
 				  $sql->anonymous    = $donation['anonymous'];
 					$sql->rewards_id   = $donation['pl'];
