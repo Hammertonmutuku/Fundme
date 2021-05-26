@@ -100,8 +100,8 @@
                       <div class="col-sm-10">
                         <select name="country" class="form-control select2">
                           <option value="">{{trans('misc.select_one')}}</option>
-                        @foreach(  App\Models\Countries::orderBy('country_name')->get() as $country )
-                            <option value="{{$country->country_name}}">{{ $country->country_name }}</option>
+                        @foreach(  App\Models\Countries::orderBy('name')->get() as $country )
+                            <option value="{{$country->name}}">{{ $country->name }}</option>
                             @endforeach
                           </select>
                           </select>

@@ -40,7 +40,7 @@ class User extends Authenticatable
     }
 
 	public function country() {
-        return $this->belongsTo('App\Models\Countries', 'countries_id')->first();
+        return $this->belongsTo('App\Models\Countries', 'id')->first();
     }
 
 }

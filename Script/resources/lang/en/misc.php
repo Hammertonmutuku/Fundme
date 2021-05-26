@@ -103,6 +103,7 @@ return array(
 	'report' => 'Report',
 	'reported_success'          =>      'The report has been sent successfully',
 	'success_update'            =>      'It has been updated successfully',
+	'success_Donation'            =>      'Donation has been received',
 	'updated'                   =>      'Updated',
 	'created'                   =>      'Created',
 	'type'                      =>      'Type',
@@ -346,6 +347,7 @@ return array(
 
 	//<------------ Version 2.3 --------------->>
 	'debit_credit_card' => 'Debit / Credit Card',
+	'mpesa' => 'Mpesa',
 
 	//<------------ Version 2.6 --------------->>
 	'amount_minimum2' => 'The minimum amount is :min:symbol :code', // Not remove :symbol:min and :code

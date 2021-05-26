@@ -837,6 +837,6 @@ function pagination($url, $msgerror) {
 $(function () {
   $(document).scroll(function () {
     var $nav = $(".scroll");
-    $nav.toggleClass('shadow-sm bg-dark', $(this).scrollTop() > $nav.height());
+    $nav.toggleClass('shadow-sm bg-success', $(this).scrollTop() > $nav.height());
   });
 });

@@ -19,10 +19,10 @@
 </div>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 @if(request()->path() == '/') scroll @else shadow-sm bg-dark @endif">
+  <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 @if(request()->path() == '/') scroll @else shadow-sm bg-success @endif">
     <div class="container d-flex font-weight-bold">
       <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset('public/img/rsz_1rsz_msaada2.png') }}" style="max-width: 130px; "class="align-baseline" alt="{{$settings->title}}" />
+        <img src="{{ asset('public/img/rsz_1rsz_msaada2.png') }}" style="max-width: 150px; "class="align-baseline" alt="{{$settings->title}}" />
       </a>
       <ul class="navbar-nav ml-auto d-lg-none">
         <li class="nav-item">

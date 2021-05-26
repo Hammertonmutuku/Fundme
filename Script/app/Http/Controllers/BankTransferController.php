@@ -15,6 +15,7 @@ use App\Helper;
 use Mail;
 use Carbon\Carbon;
 use App\Models\PaymentGateways;
+use Session;
 
 class BankTransferController extends Controller
 {
@@ -25,9 +26,9 @@ class BankTransferController extends Controller
 
   public function show() {
 
-    if(!$this->request->expectsJson()) {
-        abort(404);
-    }
+    // if(!$this->request->expectsJson()) {
+    //     abort(404);
+    // }
 
     // Insert DB and send Mail
     $sql                   = new Donations;
@@ -75,10 +76,14 @@ class BankTransferController extends Controller
           ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
       });
 
-    return response()->json([
-          'success' => true,
-          'url' => url('donation/pending', $this->request->campaign_id)
-      ]);
+       \Session::flash('notification',trans('auth.success_Donation')\);
+      return redirect()->back();
+                 
+
+    // return response()->json([
+    //       'success' => true,
+    //       'url' => url('donation/pending', $this->request->campaign_id)
+    //   ]);
 
   }
 }

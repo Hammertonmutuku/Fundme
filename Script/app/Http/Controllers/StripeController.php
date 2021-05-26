@@ -159,9 +159,9 @@ class StripeController extends Controller
             ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
         });
 
-      return response()->json([
-        "success" => true
-      ]);
+        \Session::flash('notification',trans('auth.success_Donation')\);
+        return redirect()->back();
+                       
     } else {
       # Invalid status
       http_response_code(500);

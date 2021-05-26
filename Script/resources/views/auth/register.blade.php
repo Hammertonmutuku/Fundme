@@ -95,8 +95,8 @@
               </div>
               <select required class="custom-select" name="countries_id"> 
                 <option value="">{{ trans('misc.select_your_country') }}</option>
-                @foreach (App\Models\Countries::orderBy('country_name')->get() as $country )
-                    <option value="{{ $country->id }}" {{$country->id == 111 ? 'selected' : ''}} >{{ $country->country_name }}</option>
+                @foreach (App\Models\Countries::orderBy('name')->get() as $country )
+                    <option value="{{ $country->id }}" {{$country->id == 110 ? 'selected' : ''}} >{{ $country->name }}</option>
                   @endforeach
               </select>
             </div>

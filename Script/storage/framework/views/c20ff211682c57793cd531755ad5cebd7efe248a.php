@@ -66,13 +66,20 @@
               <input type="email" class="form-control" value="<?php echo e(auth()->user()->email, false); ?>" name="email" placeholder="<?php echo e(trans('auth.email'), false); ?>" title="<?php echo e(trans('auth.email'), false); ?>" autocomplete="off">
          </div><!-- ***** Form Group ***** -->
 
+		 <!-- ***** Form Group ***** -->
+		 <div class="form-group">
+			
+			<p>Phone number</p>
+			<input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="<?php echo e(auth()->user()->phone_number, false); ?>" />
+	    </div><!-- ***** Form Group ***** -->
+
          <!-- ***** Form Group ***** -->
             <div class="form-group">
             	<label><?php echo e(trans('misc.country'), false); ?></label>
             	<select name="countries_id" class="custom-select" >
                 <option value=""><?php echo e(trans('misc.select_your_country'), false); ?></option>
-                  <?php $__currentLoopData = App\Models\Countries::orderBy('country_name')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option <?php if( auth()->user()->countries_id == $country->id ): ?> selected="selected" <?php endif; ?> value="<?php echo e($country->id, false); ?>"><?php echo e($country->country_name, false); ?></option>
+                  <?php $__currentLoopData = App\Models\Countries::orderBy('name')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option <?php if( auth()->user()->countries_id == $country->id ): ?> selected="selected" <?php endif; ?>  value="<?php echo e($country->id, false); ?>" <?php echo e($country->id == 110 ? 'selected' : '', false); ?> ><?php echo e($country->name, false); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </select>
             	    </div><!-- ***** Form Group ***** -->
@@ -93,9 +100,16 @@
  <!-- container wrap-ui -->
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('javascript'); ?>
-
+ <?php $__env->startSection('javascript'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script type="text/javascript">
+
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+	preferredCountries: ["ke", "co", "in", "de"],
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
 
 	//<<<<<<<=================== * UPLOAD AVATAR  * ===============>>>>>>>//
     $(document).on('change', '#uploadAvatar', function() {

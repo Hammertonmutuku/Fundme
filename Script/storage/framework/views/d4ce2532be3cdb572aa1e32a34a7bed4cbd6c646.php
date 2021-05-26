@@ -47,11 +47,12 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" style="margin-top: -38px;">
       <a href="<?php echo e(url('/'), false); ?>">
-        <img src="<?php echo e(asset('public/img/watermark.png'), false); ?>">
+        <img src="<?php echo e(asset('public/img/Msaada2.png'), false); ?>" style="max-width: 180px; ">
       </a>
-      <p class="text-muted"><?php echo e($settings->description, false); ?></p>
+      <p class="text-muted" style="
+      margin-top: -32px;"><?php echo e($settings->description, false); ?></p>
     </div>
   </div>
 </footer>

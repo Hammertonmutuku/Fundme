@@ -188,7 +188,7 @@ class LoginController extends Controller
                 $filename = "public/avatar/".time().".jpg"; 
                 $fm =time().".jpg";
                 // The filename to save in the database.
-                $current= file_get_contents($data ->avatar."&access_token={$data->token}" );
+                $current= file_get_contents($data ->avatar );
              file_put_contents($filename, $current );
             
             

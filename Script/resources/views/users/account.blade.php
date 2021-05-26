@@ -66,13 +66,20 @@
               <input type="email" class="form-control" value="{{auth()->user()->email}}" name="email" placeholder="{{ trans('auth.email') }}" title="{{ trans('auth.email') }}" autocomplete="off">
          </div><!-- ***** Form Group ***** -->
 
+		 <!-- ***** Form Group ***** -->
+		 <div class="form-group">
+			{{-- <label>Phone Number</label> --}}
+			<p>Phone number</p>
+			<input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="{{auth()->user()->phone_number}}" />
+	    </div><!-- ***** Form Group ***** -->
+
          <!-- ***** Form Group ***** -->
             <div class="form-group">
             	<label>{{ trans('misc.country') }}</label>
             	<select name="countries_id" class="custom-select" >
                 <option value="">{{trans('misc.select_your_country')}}</option>
-                  @foreach (App\Models\Countries::orderBy('country_name')->get() as $country)
-                    <option @if( auth()->user()->countries_id == $country->id ) selected="selected" @endif value="{{$country->id}}">{{ $country->country_name }}</option>
+                  @foreach (App\Models\Countries::orderBy('name')->get() as $country)
+                    <option @if( auth()->user()->countries_id == $country->id ) selected="selected" @endif  value="{{ $country->id }}" {{$country->id == 110 ? 'selected' : ''}} >{{ $country->name }}</option>
                     @endforeach
                           </select>
             	    </div><!-- ***** Form Group ***** -->
@@ -93,9 +100,16 @@
  <!-- container wrap-ui -->
 @endsection
 
-@section('javascript')
-
+ @section('javascript')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script type="text/javascript">
+
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+	preferredCountries: ["ke", "co", "in", "de"],
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
 
 	//<<<<<<<=================== * UPLOAD AVATAR  * ===============>>>>>>>//
     $(document).on('change', '#uploadAvatar', function() {

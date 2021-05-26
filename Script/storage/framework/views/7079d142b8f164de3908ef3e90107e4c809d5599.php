@@ -20,10 +20,10 @@
 </div>
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 <?php if(request()->path() == '/'): ?> scroll <?php else: ?> shadow-sm bg-dark-2 <?php endif; ?>">
+  <nav class="navbar navbar-expand-md navbar-inverse fixed-top py-3 <?php if(request()->path() == '/'): ?> scroll <?php else: ?> shadow-sm bg-success <?php endif; ?>">
     <div class="container d-flex font-weight-bold">
       <a class="navbar-brand" href="<?php echo e(url('/'), false); ?>">
-        <img src="<?php echo e(asset('public/img/rsz_1rsz_msaada2.png'), false); ?>" style="max-width: 130px; "class="align-baseline" alt="<?php echo e($settings->title, false); ?>" />
+        <img src="<?php echo e(asset('public/img/rsz_1rsz_msaada2.png'), false); ?>" style="max-width: 150px; "class="align-baseline" alt="<?php echo e($settings->title, false); ?>" />
       </a>
       <ul class="navbar-nav ml-auto d-lg-none">
         <li class="nav-item">

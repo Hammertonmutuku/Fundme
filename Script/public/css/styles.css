@@ -778,7 +778,7 @@ a:focus.btn-whatsapp {
   border: 1px solid #565656;
 }
 .bg-dark-2 {
-  background-color:  #0B4D41;
+  background-color:  #0B4D41 !important;
 }
 .bg-dark-3 {
   background-color: #212121;

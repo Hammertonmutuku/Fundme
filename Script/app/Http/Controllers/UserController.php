@@ -32,6 +32,7 @@ class UserController extends Controller
 	        'full_name' => 'required|min:3|max:25',
 			'email'     => 'required|email|unique:users,email,'.$id,
 			'countries_id'     => 'required',
+		
 	        ],$messages);
 
     }//<--- End Method
@@ -61,6 +62,7 @@ class UserController extends Controller
 	   $user->name        = $input['full_name'];
 	   $user->email        = trim($input['email']);
 	   $user->countries_id = $input['countries_id'];
+	   $user->phone_number = $input['phone'];
 	   $user->save();
 
 	   \Session::flash('notification',trans('auth.success_update'));
@@ -99,7 +101,7 @@ class UserController extends Controller
 	   $user->password  = \Hash::make($input[ "password"] );
 	   $user->save();
 
-	   \Session::flash('notification',trans('auth.success_update_password'));
+	   Session::flash('notification',trans('auth.success_update_password'));
 
 	   return redirect('account/password');
 

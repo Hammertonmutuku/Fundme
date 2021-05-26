@@ -141,7 +141,7 @@
   		<strong class="text-percentage">{{$percentage }}%</strong>
   	</small>
 
-    <hr>
+    {{-- <hr>
  
   <!-- form start -->
   <div class="card">
@@ -190,9 +190,18 @@
       </form>
       </div>
     </div>
-    </div>
- <form method="POST" action="{{ url('donate', $response->id) }}" enctype="multipart/form-data" id="formDonation">
+    </div> --}}
 
+			@if (session('notification'))
+			<div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		{{ session('notification') }}
+            		</div>
+            	@endif
+
+    @include('errors.errors-forms')  
+ <form method="POST" action="{{ url('donate', $response->id) }}" enctype="multipart/form-data" id="formDonation">
+ 
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <input type="hidden" name="_id" value="{{ $response->id }}">
    @if(isset($pledge))
@@ -204,12 +213,14 @@
    @endif
 
    <div class="form-group">
+    <input type="hidden" id="stripe_key" value="{{ env('STRIPE_KEY') }}"/>
          <label>{{ trans('misc.enter_your_donation') }}</label>
          <div class="input-group has-success">
            <div class="input-group-prepend">
              <span class="input-group-text">{{$settings->currency_symbol}}</span>
            </div>
-           <input type="number" min="{{$settings->min_donation_amount}}"  autocomplete="off" id="onlyNumber" class="form-control form-control-lg" name="amount" @if( isset($pledge) )readonly='readonly'@endif value="@if( isset($pledge) ){{$pledge->amount}}@endif" placeholder="{{trans('misc.minimum_amount')}} @if($settings->currency_position == 'left') {{$settings->currency_symbol.$settings->min_donation_amount}} @else {{$settings->min_donation_amount.$settings->currency_symbol}} @endif {{$settings->currency_code}}">
+           <input type="number" min="{{$settings->min_donation_amount}}"  autocomplete="off" id="onlyNumber" class="form-control form-control-lg" name="amount" id="amount" @if( isset($pledge) )readonly='readonly'@endif value="@if( isset($pledge) ){{$pledge->amount}}@endif" placeholder="{{trans('misc.minimum_amount')}} @if($settings->currency_position == 'left') {{$settings->currency_symbol.$settings->min_donation_amount}} @else {{$settings->min_donation_amount.$settings->currency_symbol}} @endif {{$settings->currency_code}}">
+         
          </div>
        </div>
 
@@ -219,36 +230,56 @@
            <div class="col">
            <label>{{ trans('auth.full_name') }}</label>
              <input type="text" id="cardholder-name" value="@if( Auth::check() ){{Auth::user()->name}}@endif" name="full_name" class="form-control input-lg" placeholder="{{ trans('misc.first_name_and_last_name') }}">
+             @error('full_name')
+             <span class="invalid-feedback" role="alert">
+                 <strong>{{ $message }}</strong>
+             </span>
+         @enderror
            </div><!-- /. End-->
 
            <!-- Start -->
            <div class="col">
              <label>{{ trans('auth.email') }}</label>
                <input type="text" id="cardholder-email" value="@if( Auth::check() ){{Auth::user()->email}}@endif" name="email" class="form-control input-lg" placeholder="{{ trans('auth.email') }}">
+               @error('email')
+               <span class="invalid-feedback" role="alert">
+                   <strong>{{ $message }}</strong>
+               </span>
+           @enderror
            </div><!-- /. End-->
 
          </div><!-- /. form-row-->
 
            <div class="form-row form-group">
                <!-- Start -->
-               
-                 <div class="col">
+                <div class="col">
                    <label>{{ trans('misc.country') }}</label>
                      <select id="country" name="country" class="custom-select" >
                        <option value="">{{trans('misc.select_one')}}</option>
-                     @foreach(  App\Models\Countries::orderBy('country_name')->get() as $country )
-                         <option @if( Auth::check() && Auth::user()->countries_id == $country->id ) selected="selected" @endif value="{{$country->country_name}}">{{ $country->country_name }}</option>
-                         @endforeach
+                      
+                       @foreach (App\Models\Countries::orderBy('name')->get() as $country)
+                       <option @if( auth()->user()->countries_id == $country->id ) selected="selected" @endif  value="{{ $country->id }}" {{$country->id == 110 ? 'selected' : ''}} >{{ $country->name }}</option>
+                       @endforeach
                        </select>
+                    
                      </div><!-- /. End-->
 
                <!-- Start -->
                  <div class="col">
                    <label>{{ trans('misc.postal_code') }}</label>
                      <input type="text" id="postal_code" value="{{ old('postal_code') }}" name="postal_code" class="form-control" placeholder="{{ trans('misc.postal_code') }}">
+                   
                  </div><!-- /. End-->
 
+                 
+
                </div><!-- form-row -->
+ <!-- ***** Form Group ***** -->
+             <div class="form-group">
+  {{-- <label>Phone Number</label> --}}
+             <p>Phone number</p>
+             <input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="{{auth()->user()->phone_number}}" />
+              </div><!-- ***** Form Group ***** -->
 
                <!-- Start -->
                  <div class="form-group">
@@ -267,7 +298,9 @@
                              $paymentName = '<i class="far fa-credit-card mr-1"></i> '. trans('misc.debit_credit_card') . ' ('.$payment->name.')';
                            } elseif ($payment->type == 'bank') {
                              $paymentName = '<i class="fa fa-university mr-1"></i> '.trans('misc.bank_transfer');
-                           } else {
+                           } elseif ($payment->type == 'mobile') {
+                            $paymentName = '<i class="fa fa-mobile" aria-hidden="true"></i>'.' '.$payment->name;
+                           }else {
                              $paymentName = '<i class="fa fa-wallet mr-1"></i> '.trans('misc.pay_through').' '.$payment->name;
                            }
 
@@ -276,6 +309,7 @@
                          <div class="custom-control custom-radio mb-2">
                           <input @if (PaymentGateways::where('enabled', '1')->count() == 1) checked @endif type="radio" id="payment_gateway{{$payment->id}}" name="payment_gateway" value="{{$payment->id}}" class="custom-control-input paymentGateway">
                           <label class="custom-control-label" for="payment_gateway{{$payment->id}}">{!! $paymentName !!}</label>
+                  
                         </div>
 
                         @if ($_bankTransfer)
@@ -314,7 +348,11 @@
                         @endif
 
                         @endforeach
-
+                        @error('payment_gateway')
+             <span class="invalid-feedback" role="alert">
+                 <strong>{{ $message }}</strong>
+             </span>
+         @enderror
                    </div><!-- /. End-->
 
      <div class="form-group custom-control custom-checkbox">
@@ -357,8 +395,16 @@
 @section('javascript')
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src='https://js.paystack.co/v1/inline.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+	preferredCountries: ["ke", "co", "in", "de"],
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
 
 
 // document.getElementById('getaccesstoken').addEventListener('click', (event) => {
@@ -385,7 +431,7 @@
 //     console.log(error);
 //   })
 // })
-document.getElementById('stkpush').addEventListener('click', (event) => {
+ document.getElementById('buttonDonation').addEventListener('click', (event) => {
     event.preventDefault()
 
     const requestBody = {
@@ -445,6 +491,7 @@ $('.paymentGateway').on('change', function(){
 
 @if(isset($_stripe->key))
 // Create a Stripe client.
+
 var stripe = Stripe('{{$_stripe->key}}');
 
 // Create an instance of Elements.

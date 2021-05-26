@@ -142,58 +142,19 @@
   		<strong class="text-percentage"><?php echo e($percentage, false); ?>%</strong>
   	</small>
 
-    <hr>
- 
-  <!-- form start -->
-  <div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      Obtain Access Token
-    </div>
-    <h4 id = "access_token"></h4>
-    <div class="card-body">
-      <button class= "btn btn-primary" id="getaccesstoken">Request Access Token</button>
-    </div>
-  </div>
-</div>
-  <div class="card mt-5">
-  <div class="card-body">
-    <div class="card-header">
-      Register URLS
-    </div>
-    <div class="card-body">
-      <button class= "btn btn-primary" id="registerUrls" >Register URLs</button>
-    </div>
-  </div>
-  </div>
-  <div class="card mt-5">
-    <div class="card-body">
-      <div class="card-header">
-        Stk push
-      </div>
-      <div class="card-body">
-        <form action="">
-          <div id="c2b_response"></div>
-          <?php echo csrf_field(); ?>
-          <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="number" name="phone" class="form-control" id="phone">
-          </div>
-          <div class="form-group">
-              <label for="amount">Amount</label>
-              <input type="number" name="amount" class="form-control" id="amount">
-          </div>
-          <div class="form-group">
-              <label for="account">Account</label>
-              <input type="text" name="account" class="form-control" id="account">
-          </div>
-          <button id="stkpush" class="btn btn-primary">Stk push</button>
-      </form>
-      </div>
-    </div>
-    </div>
- <form method="POST" action="<?php echo e(url('donate', $response->id), false); ?>" enctype="multipart/form-data" id="formDonation">
+    
 
+			<?php if(session('notification')): ?>
+			<div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		<?php echo e(session('notification'), false); ?>
+
+            		</div>
+            	<?php endif; ?>
+
+    <?php echo $__env->make('errors.errors-forms', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>  
+ <form method="POST" action="<?php echo e(url('donate', $response->id), false); ?>" enctype="multipart/form-data" id="formDonation">
+ 
    <input type="hidden" name="_token" value="<?php echo e(csrf_token(), false); ?>">
    <input type="hidden" name="_id" value="<?php echo e($response->id, false); ?>">
    <?php if(isset($pledge)): ?>
@@ -205,12 +166,25 @@
    <?php endif; ?>
 
    <div class="form-group">
+    <input type="hidden" id="stripe_key" value="<?php echo e(env('STRIPE_KEY'), false); ?>"/>
          <label><?php echo e(trans('misc.enter_your_donation'), false); ?></label>
          <div class="input-group has-success">
            <div class="input-group-prepend">
              <span class="input-group-text"><?php echo e($settings->currency_symbol, false); ?></span>
            </div>
            <input type="number" min="<?php echo e($settings->min_donation_amount, false); ?>"  autocomplete="off" id="onlyNumber" class="form-control form-control-lg" name="amount" <?php if( isset($pledge) ): ?>readonly='readonly'<?php endif; ?> value="<?php if( isset($pledge) ): ?><?php echo e($pledge->amount, false); ?><?php endif; ?>" placeholder="<?php echo e(trans('misc.minimum_amount'), false); ?> <?php if($settings->currency_position == 'left'): ?> <?php echo e($settings->currency_symbol.$settings->min_donation_amount, false); ?> <?php else: ?> <?php echo e($settings->min_donation_amount.$settings->currency_symbol, false); ?> <?php endif; ?> <?php echo e($settings->currency_code, false); ?>">
+           <?php $__errorArgs = ['amount'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+           <span class="invalid-feedback" role="alert">
+               <strong><?php echo e($message, false); ?></strong>
+           </span>
+       <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
          </div>
        </div>
 
@@ -220,36 +194,70 @@
            <div class="col">
            <label><?php echo e(trans('auth.full_name'), false); ?></label>
              <input type="text" id="cardholder-name" value="<?php if( Auth::check() ): ?><?php echo e(Auth::user()->name, false); ?><?php endif; ?>" name="full_name" class="form-control input-lg" placeholder="<?php echo e(trans('misc.first_name_and_last_name'), false); ?>">
+             <?php $__errorArgs = ['full_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+             <span class="invalid-feedback" role="alert">
+                 <strong><?php echo e($message, false); ?></strong>
+             </span>
+         <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
            </div><!-- /. End-->
 
            <!-- Start -->
            <div class="col">
              <label><?php echo e(trans('auth.email'), false); ?></label>
                <input type="text" id="cardholder-email" value="<?php if( Auth::check() ): ?><?php echo e(Auth::user()->email, false); ?><?php endif; ?>" name="email" class="form-control input-lg" placeholder="<?php echo e(trans('auth.email'), false); ?>">
+               <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+               <span class="invalid-feedback" role="alert">
+                   <strong><?php echo e($message, false); ?></strong>
+               </span>
+           <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
            </div><!-- /. End-->
 
          </div><!-- /. form-row-->
 
            <div class="form-row form-group">
                <!-- Start -->
-               
-                 <div class="col">
+                <div class="col">
                    <label><?php echo e(trans('misc.country'), false); ?></label>
                      <select id="country" name="country" class="custom-select" >
                        <option value=""><?php echo e(trans('misc.select_one'), false); ?></option>
-                     <?php $__currentLoopData = App\Models\Countries::orderBy('country_name')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                         <option <?php if( Auth::check() && Auth::user()->countries_id == $country->id ): ?> selected="selected" <?php endif; ?> value="<?php echo e($country->country_name, false); ?>"><?php echo e($country->country_name, false); ?></option>
-                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      
+                       <?php $__currentLoopData = App\Models\Countries::orderBy('name')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <option <?php if( auth()->user()->countries_id == $country->id ): ?> selected="selected" <?php endif; ?>  value="<?php echo e($country->id, false); ?>" <?php echo e($country->id == 110 ? 'selected' : '', false); ?> ><?php echo e($country->name, false); ?></option>
+                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                        </select>
+                    
                      </div><!-- /. End-->
 
                <!-- Start -->
                  <div class="col">
                    <label><?php echo e(trans('misc.postal_code'), false); ?></label>
                      <input type="text" id="postal_code" value="<?php echo e(old('postal_code'), false); ?>" name="postal_code" class="form-control" placeholder="<?php echo e(trans('misc.postal_code'), false); ?>">
+                   
                  </div><!-- /. End-->
 
+                 
+
                </div><!-- form-row -->
+ <!-- ***** Form Group ***** -->
+             <div class="form-group">
+  
+             <p>Phone number</p>
+             <input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="<?php echo e(auth()->user()->phone_number, false); ?>" />
+              </div><!-- ***** Form Group ***** -->
 
                <!-- Start -->
                  <div class="form-group">
@@ -268,7 +276,9 @@
                              $paymentName = '<i class="far fa-credit-card mr-1"></i> '. trans('misc.debit_credit_card') . ' ('.$payment->name.')';
                            } elseif ($payment->type == 'bank') {
                              $paymentName = '<i class="fa fa-university mr-1"></i> '.trans('misc.bank_transfer');
-                           } else {
+                           } elseif ($payment->type == 'mobile') {
+                            $paymentName = '<i class="fa fa-mobile" aria-hidden="true"></i>'.' '.$payment->name;
+                           }else {
                              $paymentName = '<i class="fa fa-wallet mr-1"></i> '.trans('misc.pay_through').' '.$payment->name;
                            }
 
@@ -277,6 +287,7 @@
                          <div class="custom-control custom-radio mb-2">
                           <input <?php if(PaymentGateways::where('enabled', '1')->count() == 1): ?> checked <?php endif; ?> type="radio" id="payment_gateway<?php echo e($payment->id, false); ?>" name="payment_gateway" value="<?php echo e($payment->id, false); ?>" class="custom-control-input paymentGateway">
                           <label class="custom-control-label" for="payment_gateway<?php echo e($payment->id, false); ?>"><?php echo $paymentName; ?></label>
+                  
                         </div>
 
                         <?php if($_bankTransfer): ?>
@@ -316,7 +327,18 @@
                         <?php endif; ?>
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+                        <?php $__errorArgs = ['payment_gateway'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+             <span class="invalid-feedback" role="alert">
+                 <strong><?php echo e($message, false); ?></strong>
+             </span>
+         <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                    </div><!-- /. End-->
 
      <div class="form-group custom-control custom-checkbox">
@@ -359,8 +381,16 @@
 <?php $__env->startSection('javascript'); ?>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src='https://js.paystack.co/v1/inline.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+
+   const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+	preferredCountries: ["ke", "co", "in", "de"],
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+   });
 
 
 // document.getElementById('getaccesstoken').addEventListener('click', (event) => {
@@ -387,27 +417,27 @@
 //     console.log(error);
 //   })
 // })
-document.getElementById('stkpush').addEventListener('click', (event) => {
-    event.preventDefault()
+// document.getElementById('stkpush').addEventListener('click', (event) => {
+//     event.preventDefault()
 
-    const requestBody = {
-        amount: document.getElementById('amount').value,
-        account: document.getElementById('account').value,
-        phone: document.getElementById('phone').value
-    }
+//     const requestBody = {
+//         amount: document.getElementById('amount').value,
+//         account: document.getElementById('account').value,
+//         phone: document.getElementById('phone').value
+//     }
 
-    axios.post('http://localhost/Fundme/Script/stkpush', requestBody)
-    .then((response) => {
-        if(response.data.ResponseDescription){
-            document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
-        } else {
-            document.getElementById('c2b_response').innerHTML = response.data.errorMessage
-        }
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-})
+//     axios.post('http://localhost/Fundme/Script/stkpush', requestBody)
+//     .then((response) => {
+//         if(response.data.ResponseDescription){
+//             document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+//         } else {
+//             document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+//         }
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+// })
 
 $(document).ready(function() {
 
@@ -447,6 +477,7 @@ $('.paymentGateway').on('change', function(){
 
 <?php if(isset($_stripe->key)): ?>
 // Create a Stripe client.
+
 var stripe = Stripe('<?php echo e($_stripe->key, false); ?>');
 
 // Create an instance of Elements.

@@ -8,7 +8,9 @@
 		<meta name="description" content="@yield('description_custom'){{$settings->description}}">
 		<meta name="keywords" content="{{ $settings->keywords }}" />
 		<link rel="shortcut icon" href="{{ asset('public/img/favicon.ico') }}" />
-		<title>@section('title')@show @if(isset($settings->title)){{$settings->title}}@endif</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+      
+		<title>Msaada</title>
 
 		@include('includes.css_general')
 		@yield('css')
@@ -80,6 +82,7 @@ a.page-link,
 </head>
 
 <body>
+ 
 	<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

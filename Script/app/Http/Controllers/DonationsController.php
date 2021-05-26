@@ -117,10 +117,29 @@ class DonationsController extends Controller
     }// End Method
 
 		// Send donation and validation
-    public function send() {
-
+    public function send($id, $slug = null) {
+            
+	   $response = Campaigns::where('id',$id)->where('status','active')->firstOrFail();
 			$campaign = Campaigns::findOrFail($this->request->_id);
+  
 
+		$uriCampaign = $this->request->path();
+
+		if( str_slug( $response->title ) == '' ) {
+
+				$slugUrl  = '';
+			} else {
+				$slugUrl  = '/'.str_slug( $response->title );
+			}
+
+			// $url_campaign = 'donate/'.$response->id.$slugUrl;
+
+		
+			// $uriCanonical = $url_campaign;
+
+			// if( $uriCampaign != $uriCanonical ) {
+			// 	return redirect($uriCanonical);
+			// }
 			//<---- Verify Pledge send
 			if(isset($this->request->_pledge) && $this->request->_pledge != 0 ){
 				$findPledge = $campaign->rewards->where('id', $this->request->_pledge)
@@ -179,21 +198,26 @@ class DonationsController extends Controller
 	    	],$messages);
 
 			if ($validator->fails()) {
-			        return response()->json([
-					        'success' => false,
-					        'errors' => $validator->getMessageBag()->toArray(),
-					    ]);
+			        // return response()->json([
+					//         'success' => false,
+					//         'errors' => $validator->getMessageBag()->toArray(),
+					//     ]);
+					return redirect()->back()
+					->withErrors($validator)
+					->withInput();
+				//	redirect()->route('donate/'.$response->id.$slug_url)->with('message', 'Record successfully created')->withErrors($validator);
+
 			    }
 
 					// Get name of Payment Gateway
 					$payment = PaymentGateways::find($this->request->payment_gateway);
 
-					if(!$payment) {
-						return response()->json([
-								'success' => false,
-								'errors' => ['error' => trans('admin.payments_error')],
-						]);
-					}
+					// if(!$payment) {
+					// 	return response()->json([
+					// 			'success' => false,
+					// 			'errors' => ['error' => trans('admin.payments_error')],
+					// 	]);
+					// }
 
 					$data = [
 						'campaign_id'    => $campaign->id,

@@ -16,6 +16,7 @@ use Mail;
 use Carbon\Carbon;
 use App\Models\PaymentGateways;
 use Srmklive\PayPal\Services\ExpressCheckout;
+use Session;
 
 class PayPalController extends Controller
 {
@@ -26,9 +27,9 @@ class PayPalController extends Controller
 
     public function show() {
 
-    if(!$this->request->expectsJson()) {
-        abort(404);
-    }
+    // if(!$this->request->expectsJson()) {
+    //     abort(404);
+    // }
 
       // Get Payment Gateway
       $payment = PaymentGateways::findOrFail($this->request->payment_gateway);
@@ -44,21 +45,25 @@ class PayPalController extends Controller
 			$urlCancel   = url('paypal/donation/cancel', $this->request->campaign_id);
 			$urlPaypalIPN = url('paypal/ipn');
 
-      return response()->json([
-    			'success' => true,
-          'insertBody' => '<form id="form_pp" name="_xclick" action="'.$action.'" method="post"  style="display:none">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="return" value="'.$urlSuccess.'">
-          <input type="hidden" name="cancel_return"   value="'.$urlCancel.'">
-          <input type="hidden" name="notify_url" value="'.$urlPaypalIPN.'">
-          <input type="hidden" name="currency_code" value="'.$this->settings->currency_code.'">
-          <input type="hidden" name="amount" id="amount" value="'.$this->request->amount.'">
-          <input type="hidden" name="custom" value="id='.$this->request->campaign_id.'&fn='.$this->request->full_name.'&mail='.$this->request->email.'&cc='.$this->request->country.'&pc='.$this->request->postal_code.'&cm='.$this->request->comment.'&anonymous='.$this->request->input('anonymous', '0').'&pl='.$this->request->input('_pledge', 0).'">
-          <input type="hidden" name="item_name" value="'.trans('misc.donation_for').' '.$this->request->campaign_title.'">
-          <input type="hidden" name="business" value="'.$payment->email.'">
-          <input type="submit">
-          </form> <script type="text/javascript">document._xclick.submit();</script>',
-    	]);
+
+			Session::flash('notification',trans('auth.success_Donation'));
+		    return redirect()->back();
+
+    //   return response()->json([
+    // 			'success' => true,
+    //       'insertBody' => '<form id="form_pp" name="_xclick" action="'.$action.'" method="post"  style="display:none">
+    //       <input type="hidden" name="cmd" value="_xclick">
+    //       <input type="hidden" name="return" value="'.$urlSuccess.'">
+    //       <input type="hidden" name="cancel_return"   value="'.$urlCancel.'">
+    //       <input type="hidden" name="notify_url" value="'.$urlPaypalIPN.'">
+    //       <input type="hidden" name="currency_code" value="'.$this->settings->currency_code.'">
+    //       <input type="hidden" name="amount" id="amount" value="'.$this->request->amount.'">
+    //       <input type="hidden" name="custom" value="id='.$this->request->campaign_id.'&fn='.$this->request->full_name.'&mail='.$this->request->email.'&cc='.$this->request->country.'&pc='.$this->request->postal_code.'&cm='.$this->request->comment.'&anonymous='.$this->request->input('anonymous', '0').'&pl='.$this->request->input('_pledge', 0).'">
+    //       <input type="hidden" name="item_name" value="'.trans('misc.donation_for').' '.$this->request->campaign_title.'">
+    //       <input type="hidden" name="business" value="'.$payment->email.'">
+    //       <input type="submit">
+    //       </form> <script type="text/javascript">document._xclick.submit();</script>',
+    // 	]);
     }
 
     public function paypalIpn() {
@@ -188,11 +193,13 @@ class PayPalController extends Controller
      */
     public function success(Request $request)
     {
-        $response = $provider->getExpressCheckoutDetails($request->token);
+       // $response = $provider->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            dd('Your payment was successfully. You can create success page here.');
+            Session::flash('notification',trans('auth.success_Donation'));
+		    return redirect()->back();
         }
+		
   
         dd('Something is wrong.');
     }

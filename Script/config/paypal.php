@@ -9,6 +9,6 @@ return [
         'http.ConnectionTimeOut' => 30,
         'log.logEnabled' => true,
         'log.FileName' => storage_path().'/log/paypal.log',
-        'log.LogLevel' => 'Error',
+        'log.LogLevel' => 'FINE',
     ),
 ];

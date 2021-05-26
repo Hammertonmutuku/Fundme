@@ -47,11 +47,12 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" style="margin-top: -38px;">
       <a href="{{ url('/') }}">
-        <img src="{{ asset('public/img/watermark.png') }}">
+        <img src="{{ asset('public/img/Msaada2.png') }}" style="max-width: 180px; ">
       </a>
-      <p class="text-muted">{{ $settings->description }}</p>
+      <p class="text-muted" style="
+      margin-top: -32px;">{{ $settings->description }}</p>
     </div>
   </div>
 </footer>
