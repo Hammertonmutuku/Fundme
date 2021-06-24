@@ -27,10 +27,6 @@ class PayPalController extends Controller
 
     public function show() {
 
-    // if(!$this->request->expectsJson()) {
-    //     abort(404);
-    // }
-
       // Get Payment Gateway
       $payment = PaymentGateways::findOrFail($this->request->payment_gateway);
 
@@ -44,13 +40,21 @@ class PayPalController extends Controller
 			$urlSuccess = url('paypal/donation/success', $this->request->campaign_id);
 			$urlCancel   = url('paypal/donation/cancel', $this->request->campaign_id);
 			$urlPaypalIPN = url('paypal/ipn');
+			$amount = $this->request->amount;
+			$currency = $this->settings->currency_code;
+			$campaign = $this->request->campaign_title;
+			$country =  $this->request->country_name;
+			$fullname = $this->request->full_name;
+			$postalCode = $this->request->postal_code;
+			
 
 
-			Session::flash('notification',trans('auth.success_Donation'));
-		    return redirect()->back();
+            return view('default.paywithpaypal', compact( 'urlPaypalIPN','action', 'urlSuccess', 'urlCancel', 'urlPaypalIPN', 'amount', 'currency', 'campaign', 'country', 'fullname', 'postalCode'));
+			// Session::flash('notification',trans('auth.success_Donation'));
+		    // return redirect()->back();
 
     //   return response()->json([
-    // 			'success' => true,
+    // 	   'success' => true,
     //       'insertBody' => '<form id="form_pp" name="_xclick" action="'.$action.'" method="post"  style="display:none">
     //       <input type="hidden" name="cmd" value="_xclick">
     //       <input type="hidden" name="return" value="'.$urlSuccess.'">

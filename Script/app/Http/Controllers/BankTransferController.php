@@ -76,7 +76,7 @@ class BankTransferController extends Controller
           ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
       });
 
-       \Session::flash('notification',trans('auth.success_Donation')\);
+       Session::flash('notification',trans('auth.success_Donation'));
       return redirect()->back();
                  
 

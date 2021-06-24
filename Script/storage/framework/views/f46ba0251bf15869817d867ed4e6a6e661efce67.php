@@ -142,17 +142,23 @@
   		<strong class="text-percentage"><?php echo e($percentage, false); ?>%</strong>
   	</small>
 
-    
+    <hr>
 
-			<?php if(session('notification')): ?>
-			<div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            		<?php echo e(session('notification'), false); ?>
+  <?php if(session('notification')): ?>
+  <div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(session('notification'), false); ?>
 
-            		</div>
-            	<?php endif; ?>
+            </div>
+          <?php endif; ?>
 
-    <?php echo $__env->make('errors.errors-forms', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>  
+  <?php if(session('notify_error')): ?>
+  <div class="alert alert-danger btn-sm alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(session('notify_error'), false); ?>
+
+            </div>
+          <?php endif; ?>
  <form method="POST" action="<?php echo e(url('donate', $response->id), false); ?>" enctype="multipart/form-data" id="formDonation">
  
    <input type="hidden" name="_token" value="<?php echo e(csrf_token(), false); ?>">
@@ -166,25 +172,14 @@
    <?php endif; ?>
 
    <div class="form-group">
-    <input type="hidden" id="stripe_key" value="<?php echo e(env('STRIPE_KEY'), false); ?>"/>
+  
          <label><?php echo e(trans('misc.enter_your_donation'), false); ?></label>
          <div class="input-group has-success">
            <div class="input-group-prepend">
              <span class="input-group-text"><?php echo e($settings->currency_symbol, false); ?></span>
            </div>
-           <input type="number" min="<?php echo e($settings->min_donation_amount, false); ?>"  autocomplete="off" id="onlyNumber" class="form-control form-control-lg" name="amount" <?php if( isset($pledge) ): ?>readonly='readonly'<?php endif; ?> value="<?php if( isset($pledge) ): ?><?php echo e($pledge->amount, false); ?><?php endif; ?>" placeholder="<?php echo e(trans('misc.minimum_amount'), false); ?> <?php if($settings->currency_position == 'left'): ?> <?php echo e($settings->currency_symbol.$settings->min_donation_amount, false); ?> <?php else: ?> <?php echo e($settings->min_donation_amount.$settings->currency_symbol, false); ?> <?php endif; ?> <?php echo e($settings->currency_code, false); ?>">
-           <?php $__errorArgs = ['amount'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-           <span class="invalid-feedback" role="alert">
-               <strong><?php echo e($message, false); ?></strong>
-           </span>
-       <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+           <input type="number" min="<?php echo e($settings->min_donation_amount, false); ?>"  autocomplete="off" id="onlyNumber" class="form-control form-control-lg" name="amount" id="amount" <?php if( isset($pledge) ): ?>readonly='readonly'<?php endif; ?> value="<?php if( isset($pledge) ): ?><?php echo e($pledge->amount, false); ?><?php endif; ?>" placeholder="<?php echo e(trans('misc.minimum_amount'), false); ?> <?php if($settings->currency_position == 'left'): ?> <?php echo e($settings->currency_symbol.$settings->min_donation_amount, false); ?> <?php else: ?> <?php echo e($settings->min_donation_amount.$settings->currency_symbol, false); ?> <?php endif; ?> <?php echo e($settings->currency_code, false); ?>">
+         
          </div>
        </div>
 
@@ -230,17 +225,17 @@ unset($__errorArgs, $__bag); ?>
 
            <div class="form-row form-group">
                <!-- Start -->
-                <div class="col">
+                 <div class="col">
                    <label><?php echo e(trans('misc.country'), false); ?></label>
                      <select id="country" name="country" class="custom-select" >
                        <option value=""><?php echo e(trans('misc.select_one'), false); ?></option>
                       
                        <?php $__currentLoopData = App\Models\Countries::orderBy('name')->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                       <option <?php if( auth()->user()->countries_id == $country->id ): ?> selected="selected" <?php endif; ?>  value="<?php echo e($country->id, false); ?>" <?php echo e($country->id == 110 ? 'selected' : '', false); ?> ><?php echo e($country->name, false); ?></option>
+                       <option <?php if( Auth::check() ): ?><?php echo e(auth()->user()->countries_id == $country->id, false); ?> selected="selected" <?php endif; ?>  value="<?php echo e($country->name, false); ?>" <?php echo e($country->id == 110 ? 'selected' : '', false); ?> ><?php echo e($country->name, false); ?></option>
                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                        </select>
                     
-                     </div><!-- /. End-->
+                     </div><!-- /. End--> 
 
                <!-- Start -->
                  <div class="col">
@@ -253,12 +248,14 @@ unset($__errorArgs, $__bag); ?>
 
                </div><!-- form-row -->
  <!-- ***** Form Group ***** -->
-             <div class="form-group">
-  
-             <p>Phone number</p>
-             <input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="<?php echo e(auth()->user()->phone_number, false); ?>" />
-              </div><!-- ***** Form Group ***** -->
-
+              <div class="form-group">
+              <p>Phone number</p>            
+               <input size="70"  class="form-control" id="phone1" name="phone" value="<?php if( Auth::check() ): ?><?php echo e(Auth::user()->phone_number, false); ?><?php endif; ?>"  type="tel"> 
+          
+            </div><!-- ***** Form Group ***** -->  
+            
+           
+              
                <!-- Start -->
                  <div class="form-group">
                      <input type="text" id="comment" value="<?php echo e(old('comment'), false); ?>" name="comment" class="form-control input-lg" placeholder="<?php echo e(trans('misc.leave_comment'), false); ?>">
@@ -379,26 +376,50 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('javascript'); ?>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src='https://js.paystack.co/v1/inline.js'></script>
+<!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src='https://js.paystack.co/v1/inline.js'></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+ 
+ var input = document.querySelector("#phone1");
+ 
 
-   const phoneInputField = document.querySelector("#phone");
-   const phoneInput = window.intlTelInput(phoneInputField, {
-	preferredCountries: ["ke", "co", "in", "de"],
-     utilsScript:
-       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-   });
+var iti = window.intlTelInput(input, {
+  preferredCountries: ["ke", "co", "in", "de"],
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"// just for formatting/placeholders etc 
+});
 
+
+// document.getElementById('b2cSimulate').addEventListener('click', (event) => {
+//     event.preventDefault()
+    
+//     const requestBody = {
+//         amount: document.getElementById('amount').value,
+//         occasion: document.getElementById('occasion').value,
+// 		remarks: document.getElementById('remarks').value,
+//         phone: document.getElementById('phone').value
+//     }
+
+//     axios.post('http://localhost/Fundme/Script/simulateb2c', requestBody)
+//     .then((response) => {
+//         if(response.data.ResponseDescription){
+//             document.getElementById('c2b_response').innerHTML = response.data.Result.ResultDesc
+//         } else {
+//             document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+//         }
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+// })
 
 // document.getElementById('getaccesstoken').addEventListener('click', (event) => {
 //   event.preventDefault()
 
 //   axios.post('http://localhost/Fundme/Script/get-token', {})
 //   .then((response) => {
-//     console.log(response);
+//     console.log(response.data);
 //     document.getElementById('access_token').innerHTML = response.data
 //   })
 //   .catch((error) => {
@@ -417,9 +438,9 @@ unset($__errorArgs, $__bag); ?>
 //     console.log(error);
 //   })
 // })
-// document.getElementById('stkpush').addEventListener('click', (event) => {
+//  document.getElementById('stkpush').addEventListener('click', (event) => {
 //     event.preventDefault()
-
+    
 //     const requestBody = {
 //         amount: document.getElementById('amount').value,
 //         account: document.getElementById('account').value,
@@ -479,6 +500,7 @@ $('.paymentGateway').on('change', function(){
 // Create a Stripe client.
 
 var stripe = Stripe('<?php echo e($_stripe->key, false); ?>');
+// const stripe = Stripe('<?php echo e(env('STRIPE_KEY'), false); ?>');
 
 // Create an instance of Elements.
 var elements = stripe.elements();

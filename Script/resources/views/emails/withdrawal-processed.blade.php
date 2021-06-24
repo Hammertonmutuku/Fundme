@@ -44,7 +44,7 @@
 
                                         <!-- Intro -->
                                                                                     <p style="margin-top: 0; color: #74787E; font-size: 16px; line-height: 1.5em;">
-                                                Your Request for Withdrawal Has Been Processed by <strong>{{$amount}}</strong> - Campaign: <strong>{{$campaign}}</strong>
+                                                Your Request for Withdrawal Has Been Processed by <strong>{{$amount}}</strong> - Campaign: <strong></strong>
                                             </p>
 
 

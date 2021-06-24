@@ -15,6 +15,8 @@ use App\Helper;
 use Mail;
 use Carbon\Carbon;
 use App\Models\PaymentGateways;
+use Session;
+
 
 class StripeController extends Controller
 {
@@ -24,11 +26,8 @@ class StripeController extends Controller
   }
 
   public function show() {
-
-    return response()->json([
-      'success' => true,
-      'insertBody' => '<i></i>'
-    ]);
+    
+    return $this->charge();
 
   }// End Show
 
@@ -58,6 +57,7 @@ class StripeController extends Controller
 					        'success' => false,
 					        'errors' => $validator->getMessageBag()->toArray(),
 					    ]);
+            
 			    }
 
     $email  = $this->request->email;
@@ -92,7 +92,56 @@ class StripeController extends Controller
         );
         $intent->confirm();
       }
-      return $this->generatePaymentResponse($intent);
+    
+      // return $intent->status;
+      // return $this->generatePaymentResponse($intent);
+
+        // Insert DB and send Mail
+        $sql                   = new Donations;
+        $sql->campaigns_id     = $this->request->_id;
+        $sql->fullname         = $this->request->full_name;
+        $sql->email            = $this->request->email;
+        $sql->country          = $this->request->country;
+        $sql->postal_code      = $this->request->postal_code;
+        $sql->donation         = $this->request->amount;
+        $sql->payment_gateway  = 'Stripe';
+        $sql->comment          = $this->request->input('comment', '');
+        $sql->anonymous        = $this->request->input('anonymous', '0');
+        $sql->rewards_id       = $this->request->input('_pledge', 0);
+        $sql->save();
+
+        //send Mail
+        $campaign = Campaigns::find($this->request->_id);
+
+        $sender       = $this->settings->email_no_reply;
+        $titleSite    = $this->settings->title;
+        $_emailUser   = $this->request->email;
+        $campaignID   = $campaign->id;
+        $campaignTitle = $campaign->title;
+        $organizerName = $campaign->user()->name;
+        $organizerEmail = $campaign->user()->email;
+        $fullNameUser = $this->request->full_name;
+        $paymentGateway = 'Stripe';
+  
+        Mail::send('emails.thanks-donor', array(
+              'data' => $campaignID,
+              'fullname' => $fullNameUser,
+              'title_site' => $titleSite,
+              'campaign_id' => $campaignID,
+              'organizer_name' => $organizerName,
+              'organizer_email' => $organizerEmail,
+              'payment_gateway' => $paymentGateway,
+            ),
+        function($message) use ( $sender, $fullNameUser, $titleSite, $_emailUser, $campaignTitle)
+          {
+              $message->from($sender, $titleSite)
+                ->to($_emailUser, $fullNameUser)
+              ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
+          });
+  
+          Session::flash('notification',trans('auth.success_Donation'));
+          return redirect()->back();
+  
     } catch (\Stripe\Exception\ApiErrorException $e) {
       # Display error on client
       return response()->json([
@@ -101,72 +150,72 @@ class StripeController extends Controller
     }
   }// End charge
 
-  protected function generatePaymentResponse($intent) {
-    # Note that if your API version is before 2019-02-11, 'requires_action'
-    # appears as 'requires_source_action'.
-    if ($intent->status == 'requires_action' &&
-        $intent->next_action->type == 'use_stripe_sdk') {
-      # Tell the client to handle the action
-      return response()->json([
-        'requires_action' => true,
-        'payment_intent_client_secret' => $intent->client_secret,
-      ]);
-    } else if ($intent->status == 'succeeded') {
-      # The payment didn’t need any additional actions and completed!
-      # Handle post-payment fulfillment
+  // protected function generatePaymentResponse($intent) {
+  //   # Note that if your API version is before 2019-02-11, 'requires_action'
+  //   # appears as 'requires_source_action'.
+  //   if ($intent->status == 'requires_action' &&
+  //       $intent->next_action->type == 'use_stripe_sdk') {
+  //     # Tell the client to handle the action
+  //     return response()->json([
+  //       'requires_action' => true,
+  //       'payment_intent_client_secret' => $intent->client_secret,
+  //     ]);
+  //   } else if ($intent->status == 'succeeded') {
+  //     # The payment didn’t need any additional actions and completed!
+  //     # Handle post-payment fulfillment
 
-      // Insert DB and send Mail
-      $sql                   = new Donations;
-      $sql->campaigns_id     = $this->request->_id;
-      $sql->txn_id           = $intent->id;
-      $sql->fullname         = $this->request->full_name;
-      $sql->email            = $this->request->email;
-      $sql->country          = $this->request->country;
-      $sql->postal_code      = $this->request->postal_code;
-      $sql->donation         = $this->request->amount;
-      $sql->payment_gateway  = 'Stripe';
-      $sql->comment          = $this->request->input('comment', '');
-      $sql->anonymous        = $this->request->input('anonymous', '0');
-      $sql->rewards_id       = $this->request->input('_pledge', 0);
-      $sql->save();
+  //     // Insert DB and send Mail
+  //     $sql                   = new Donations;
+  //     $sql->campaigns_id     = $this->request->_id;
+  //     $sql->txn_id           = $intent->id;
+  //     $sql->fullname         = $this->request->full_name;
+  //     $sql->email            = $this->request->email;
+  //     $sql->country          = $this->request->country;
+  //     $sql->postal_code      = $this->request->postal_code;
+  //     $sql->donation         = $this->request->amount;
+  //     $sql->payment_gateway  = 'Stripe';
+  //     $sql->comment          = $this->request->input('comment', '');
+  //     $sql->anonymous        = $this->request->input('anonymous', '0');
+  //     $sql->rewards_id       = $this->request->input('_pledge', 0);
+  //     $sql->save();
 
-      // Send Email
-      $campaign = Campaigns::find($this->request->_id);
+  //     // Send Email
+  //     $campaign = Campaigns::find($this->request->_id);
 
-      $sender       = $this->settings->email_no_reply;
-      $titleSite    = $this->settings->title;
-      $_emailUser   = $this->request->email;
-      $campaignID   = $campaign->id;
-      $campaignTitle = $campaign->title;
-      $organizerName = $campaign->user()->name;
-      $organizerEmail = $campaign->user()->email;
-      $fullNameUser = $this->request->full_name;
-      $paymentGateway = 'Stripe';
+  //     $sender       = $this->settings->email_no_reply;
+  //     $titleSite    = $this->settings->title;
+  //     $_emailUser   = $this->request->email;
+  //     $campaignID   = $campaign->id;
+  //     $campaignTitle = $campaign->title;
+  //     $organizerName = $campaign->user()->name;
+  //     $organizerEmail = $campaign->user()->email;
+  //     $fullNameUser = $this->request->full_name;
+  //     $paymentGateway = 'Stripe';
 
-      Mail::send('emails.thanks-donor', array(
-            'data' => $campaignID,
-            'fullname' => $fullNameUser,
-            'title_site' => $titleSite,
-            'campaign_id' => $campaignID,
-            'organizer_name' => $organizerName,
-            'organizer_email' => $organizerEmail,
-            'payment_gateway' => $paymentGateway,
-          ),
-      function($message) use ( $sender, $fullNameUser, $titleSite, $_emailUser, $campaignTitle)
-        {
-            $message->from($sender, $titleSite)
-              ->to($_emailUser, $fullNameUser)
-            ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
-        });
+  //     Mail::send('emails.thanks-donor', array(
+  //           'data' => $campaignID,
+  //           'fullname' => $fullNameUser,
+  //           'title_site' => $titleSite,
+  //           'campaign_id' => $campaignID,
+  //           'organizer_name' => $organizerName,
+  //           'organizer_email' => $organizerEmail,
+  //           'payment_gateway' => $paymentGateway,
+  //         ),
+  //     function($message) use ( $sender, $fullNameUser, $titleSite, $_emailUser, $campaignTitle)
+  //       {
+  //           $message->from($sender, $titleSite)
+  //             ->to($_emailUser, $fullNameUser)
+  //           ->subject( trans('misc.thanks_donation').' - '.$campaignTitle.' || '.$titleSite );
+  //       });
 
-        \Session::flash('notification',trans('auth.success_Donation')\);
-        return redirect()->back();
+  //       Session::flash('notification',trans('auth.success_Donation'));
+  //       return redirect()->back();
                        
-    } else {
-      # Invalid status
-      http_response_code(500);
-      return response()->json(['error' => 'Invalid PaymentIntent status']);
-    }
-  }// End generatePaymentResponse
+  //   } else {
+  //     # Invalid status
+  //     http_response_code(500);
+  //     return response()->json(['error' => 'Invalid PaymentIntent status']);
+  //   }
+  // }// End generatePaymentResponse
 
 }

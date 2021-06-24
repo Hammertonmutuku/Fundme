@@ -13,17 +13,15 @@
 
         <!-- Main content -->
         <section class="content">
-
-        	@if(Session::has('success_message'))
+	@if(Session::has('success_message'))
 		    <div class="alert alert-success">
 		    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">×</span>
 								</button>
 		      <i class="fa fa-check margin-separator"></i>  {{ Session::get('success_message') }}
 		    </div>
-		@endif
-
-        	<div class="row">
+	@endif
+	        	<div class="row">
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
@@ -33,7 +31,7 @@
 
                     <div class="box-tools">
                       <a href="{{ url('dashboard/withdrawals/configure') }}" class="btn btn-sm btn-success no-shadow pull-right">
-                        <i class="fa fa-cog myicon-right"></i> {{trans('misc.configure')}}
+                        <i class="fa fa-cog myicon-right"></i> withdraw
                       </a>
                     </div>
                 </div><!-- /.box-header -->
@@ -111,6 +109,21 @@
              @endif
             </div>
           </div>
+		  @if (session('notification'))
+			<div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		{{ session('notification') }}
+            		</div>
+            	@endif
+
+      @if (session('notify_error'))
+			<div class="alert alert-danger btn-sm alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		{{ session('notify_error') }}
+            		</div>
+            	@endif
+		  
+		 
 
           <!-- Your Page Content Here -->
 
@@ -119,7 +132,31 @@
 @endsection
 
 @section('javascript')
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+
+ document.getElementById('b2cSimulate').addEventListener('click', (event) => {
+    event.preventDefault()
+    
+    const requestBody = {
+        amount: document.getElementById('amount').value,
+        occasion: document.getElementById('occasion').value,
+		remarks: document.getElementById('remarks').value,
+        phone: document.getElementById('phone').value
+    }
+
+    axios.post('http://localhost/Fundme/Script/simulateb2c', requestBody)
+    .then((response) => {
+        if(response.data.ResponseDescription){
+            document.getElementById('c2b_response').innerHTML = response.data.Result.ResultDesc
+        } else {
+            document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+})
 
 $(".deleteW").click(function(e) {
    	e.preventDefault();

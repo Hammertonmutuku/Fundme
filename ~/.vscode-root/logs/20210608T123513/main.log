@@ -1,0 +1,14 @@
+[2021-06-08 12:35:14.085] [main] [info] update#setState idle
+[2021-06-08 12:35:44.100] [main] [info] update#setState checking for updates
+[2021-06-08 12:35:44.104] [main] [info] update#setState idle
+[2021-06-08 13:35:44.200] [main] [info] update#setState checking for updates
+[2021-06-08 13:35:44.211] [main] [info] update#setState idle
+[2021-06-08 14:35:44.309] [main] [info] update#setState checking for updates
+[2021-06-08 14:35:44.317] [main] [info] update#setState idle
+[2021-06-08 15:35:44.419] [main] [info] update#setState checking for updates
+[2021-06-08 15:35:44.424] [main] [info] update#setState idle
+[2021-06-08 16:35:44.423] [main] [info] update#setState checking for updates
+[2021-06-08 16:35:44.424] [main] [info] update#setState idle
+[2021-06-08 17:35:44.431] [main] [info] update#setState checking for updates
+[2021-06-08 17:35:44.433] [main] [info] update#setState idle
+[2021-06-08 18:09:04.278] [main] [error] [uncaught exception in main]: Error: SharedProcess: crashed (detail: killed)

@@ -141,65 +141,21 @@
   		<strong class="text-percentage">{{$percentage }}%</strong>
   	</small>
 
-    {{-- <hr>
- 
-  <!-- form start -->
-  <div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      Obtain Access Token
-    </div>
-    <h4 id = "access_token"></h4>
-    <div class="card-body">
-      <button class= "btn btn-primary" id="getaccesstoken">Request Access Token</button>
-    </div>
-  </div>
-</div>
-  <div class="card mt-5">
-  <div class="card-body">
-    <div class="card-header">
-      Register URLS
-    </div>
-    <div class="card-body">
-      <button class= "btn btn-primary" id="registerUrls" >Register URLs</button>
-    </div>
-  </div>
-  </div>
-  <div class="card mt-5">
-    <div class="card-body">
-      <div class="card-header">
-        Stk push
-      </div>
-      <div class="card-body">
-        <form action="">
-          <div id="c2b_response"></div>
-          @csrf
-          <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="number" name="phone" class="form-control" id="phone">
-          </div>
-          <div class="form-group">
-              <label for="amount">Amount</label>
-              <input type="number" name="amount" class="form-control" id="amount">
-          </div>
-          <div class="form-group">
-              <label for="account">Account</label>
-              <input type="text" name="account" class="form-control" id="account">
-          </div>
-          <button id="stkpush" class="btn btn-primary">Stk push</button>
-      </form>
-      </div>
-    </div>
-    </div> --}}
+    <hr>
 
-			@if (session('notification'))
-			<div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            		{{ session('notification') }}
-            		</div>
-            	@endif
+  @if (session('notification'))
+  <div class="alert alert-success btn-sm alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ session('notification') }}
+            </div>
+  @endif
 
-    @include('errors.errors-forms')  
+  @if (session('notify_error'))
+  <div class="alert alert-danger btn-sm alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ session('notify_error') }}
+            </div>
+          @endif
  <form method="POST" action="{{ url('donate', $response->id) }}" enctype="multipart/form-data" id="formDonation">
  
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -213,7 +169,7 @@
    @endif
 
    <div class="form-group">
-    <input type="hidden" id="stripe_key" value="{{ env('STRIPE_KEY') }}"/>
+  
          <label>{{ trans('misc.enter_your_donation') }}</label>
          <div class="input-group has-success">
            <div class="input-group-prepend">
@@ -252,17 +208,17 @@
 
            <div class="form-row form-group">
                <!-- Start -->
-                <div class="col">
+                 <div class="col">
                    <label>{{ trans('misc.country') }}</label>
                      <select id="country" name="country" class="custom-select" >
                        <option value="">{{trans('misc.select_one')}}</option>
                       
                        @foreach (App\Models\Countries::orderBy('name')->get() as $country)
-                       <option @if( auth()->user()->countries_id == $country->id ) selected="selected" @endif  value="{{ $country->id }}" {{$country->id == 110 ? 'selected' : ''}} >{{ $country->name }}</option>
+                       <option @if( Auth::check() ){{ auth()->user()->countries_id == $country->id }} selected="selected" @endif  value="{{ $country->name }}" {{$country->id == 110 ? 'selected' : ''}} >{{ $country->name }}</option>
                        @endforeach
                        </select>
                     
-                     </div><!-- /. End-->
+                     </div><!-- /. End--> 
 
                <!-- Start -->
                  <div class="col">
@@ -275,12 +231,14 @@
 
                </div><!-- form-row -->
  <!-- ***** Form Group ***** -->
-             <div class="form-group">
-  {{-- <label>Phone Number</label> --}}
-             <p>Phone number</p>
-             <input size="70" type="tel" class="form-control" id="phone"   name="phone"  value="{{auth()->user()->phone_number}}" />
-              </div><!-- ***** Form Group ***** -->
-
+              <div class="form-group">
+              <p>Phone number</p>            
+               <input size="70"  class="form-control" id="phone1" name="phone" value="@if( Auth::check() ){{Auth::user()->phone_number}}@endif"  type="tel"> 
+          
+            </div><!-- ***** Form Group ***** -->  
+            
+           
+              
                <!-- Start -->
                  <div class="form-group">
                      <input type="text" id="comment" value="{{ old('comment') }}" name="comment" class="form-control input-lg" placeholder="{{ trans('misc.leave_comment') }}">
@@ -393,26 +351,50 @@
 @endsection
 
 @section('javascript')
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src='https://js.paystack.co/v1/inline.js'></script>
+<!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src='https://js.paystack.co/v1/inline.js'></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+ 
+ var input = document.querySelector("#phone1");
+ 
 
-   const phoneInputField = document.querySelector("#phone");
-   const phoneInput = window.intlTelInput(phoneInputField, {
-	preferredCountries: ["ke", "co", "in", "de"],
-     utilsScript:
-       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-   });
+var iti = window.intlTelInput(input, {
+  preferredCountries: ["ke", "co", "in", "de"],
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"// just for formatting/placeholders etc 
+});
 
+
+// document.getElementById('b2cSimulate').addEventListener('click', (event) => {
+//     event.preventDefault()
+    
+//     const requestBody = {
+//         amount: document.getElementById('amount').value,
+//         occasion: document.getElementById('occasion').value,
+// 		remarks: document.getElementById('remarks').value,
+//         phone: document.getElementById('phone').value
+//     }
+
+//     axios.post('http://localhost/Fundme/Script/simulateb2c', requestBody)
+//     .then((response) => {
+//         if(response.data.ResponseDescription){
+//             document.getElementById('c2b_response').innerHTML = response.data.Result.ResultDesc
+//         } else {
+//             document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+//         }
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+// })
 
 // document.getElementById('getaccesstoken').addEventListener('click', (event) => {
 //   event.preventDefault()
 
 //   axios.post('http://localhost/Fundme/Script/get-token', {})
 //   .then((response) => {
-//     console.log(response);
+//     console.log(response.data);
 //     document.getElementById('access_token').innerHTML = response.data
 //   })
 //   .catch((error) => {
@@ -431,27 +413,27 @@
 //     console.log(error);
 //   })
 // })
- document.getElementById('buttonDonation').addEventListener('click', (event) => {
-    event.preventDefault()
+//  document.getElementById('stkpush').addEventListener('click', (event) => {
+//     event.preventDefault()
+    
+//     const requestBody = {
+//         amount: document.getElementById('amount').value,
+//         account: document.getElementById('account').value,
+//         phone: document.getElementById('phone').value
+//     }
 
-    const requestBody = {
-        amount: document.getElementById('amount').value,
-        account: document.getElementById('account').value,
-        phone: document.getElementById('phone').value
-    }
-
-    axios.post('http://localhost/Fundme/Script/stkpush', requestBody)
-    .then((response) => {
-        if(response.data.ResponseDescription){
-            document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
-        } else {
-            document.getElementById('c2b_response').innerHTML = response.data.errorMessage
-        }
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-})
+//     axios.post('http://localhost/Fundme/Script/stkpush', requestBody)
+//     .then((response) => {
+//         if(response.data.ResponseDescription){
+//             document.getElementById('c2b_response').innerHTML = response.data.ResponseDescription
+//         } else {
+//             document.getElementById('c2b_response').innerHTML = response.data.errorMessage
+//         }
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+// })
 
 $(document).ready(function() {
 
@@ -493,6 +475,7 @@ $('.paymentGateway').on('change', function(){
 // Create a Stripe client.
 
 var stripe = Stripe('{{$_stripe->key}}');
+// const stripe = Stripe('{{env('STRIPE_KEY')}}');
 
 // Create an instance of Elements.
 var elements = stripe.elements();

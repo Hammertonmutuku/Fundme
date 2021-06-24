@@ -3,7 +3,7 @@
 return [
     'client_id' => env('PAYPAL_CLIENT_ID', ''),
     'secret' => env('PAYPAL_SECRET'. ''),
-    'setting' => array (
+    'settings' => array (
 
        'mode' => env('PAYPAL_MODE ', ''),
         'http.ConnectionTimeOut' => 30,

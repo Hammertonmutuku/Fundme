@@ -146,6 +146,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
     		Collective\Html\HtmlServiceProvider::class,
@@ -156,8 +157,11 @@ return [
          * Package Service Providers...
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        //pesapal
         Knox\Pesapal\PesapalServiceProvider::class,
         // Paypall
+
+       
      
 
         /*
@@ -168,7 +172,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\ViewServiceProvider::class
+        App\Providers\ViewServiceProvider::class,
+    
 
     ],
 

@@ -21,3 +21,4 @@ Route::post('validation', 'MpesaResponses@validation');
 Route::post('confirmation', 'MpesaResponses@confirmation');
 Route::post('stkpush', 'MpesaResponses@stkPush');
 Route::get('stkpush', 'MpesaController@stkPush');
+Route::get('b2cCallback', 'MpesaConroller@stkPush');

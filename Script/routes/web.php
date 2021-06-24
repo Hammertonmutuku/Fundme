@@ -342,6 +342,8 @@ Route::group(['middleware' => 'role'], function() {
 	Route::get('panel/admin/payments/{id}','AdminController@paymentsGateways');
 	Route::post('panel/admin/payments/{id}','AdminController@savePaymentsGateways');
 
+
+
 	// Profiles Social
 	Route::get('panel/admin/profiles-social','AdminController@profiles_social');
 	Route::post('panel/admin/profiles-social','AdminController@update_profiles_social');
@@ -372,22 +374,7 @@ Route::post('approve/donation','AdminController@approveDonation');
 Route::post('delete/donation','AdminController@deleteDonation');
 
 
-// Paypal IPN
-Route::post('paypal/ipn','PayPalController@paypalIpn');
 
-
-	Route::get('paypal/donation/success/{id}', function($id){
-
-			session()->put('donation_success', trans('misc.donation_success'));
-			return redirect("campaign/".$id);
-	});
-
-
-	Route::get('paypal/donation/cancel/{id}', function($id){
-
-			session()->put('donation_cancel', trans('misc.donation_cancel'));
-	       return redirect("campaign/".$id);
-	});
 
 /*
  |
@@ -455,8 +442,43 @@ Route::group(['middleware' => 'guest'], function() {
 Route::get('install/{addon}','InstallController@install');
 
 // Payments Gateways
+    //Paypall
 Route::get('payment/paypal', 'PayPalController@show')->name('paypal');
+// Paypall success
+Route::get('paypal/success', 'PayPalController@success')->name('payment.success');
+// paypall cancel
+Route::get('paypal/cancel', 'PayPalController@cancel')->name('payment.cancel');
+// Paypal IPN
+Route::post('paypal/ipn','PayPalController@paypalIpn');
+
+
+	Route::get('paypal/donation/success/{id}', function($id){
+
+			session()->put('donation_success', trans('misc.donation_success'));
+			return redirect("campaign/".$id);
+	});
+
+
+	Route::get('paypal/donation/cancel/{id}', function($id){
+
+			session()->put('donation_cancel', trans('misc.donation_cancel'));
+	       return redirect("campaign/".$id);
+	});
+
+
+// bank-transfer
 Route::get('payment/bank-transfer', 'BankTransferController@show')->name('bank-transfer');
+
+
+      // Mpesa
+Route::get('payment/mpesa', 'MpesaController@show')->name('mpesa');	  
+   //Get-token
+Route::post('get-token', 'MpesaController@getAccessToken');
+  //RegisterUrls
+Route::post('registerUrls', 'MpesaController@registerUrls');
+  //Stkpush
+Route::post('stkpush', 'MpesaController@stkPush');
+
 
 Route::get('payment/stripe', 'StripeController@show')->name('stripe');
 Route::post('payment/stripe/charge', 'StripeController@charge');
@@ -492,6 +514,8 @@ Route::post('panel/admin/blog/update','AdminController@updateBlog')->middleware(
 
 Route::post('ajax/upload/image', 'AdminController@uploadImageEditor')->name('upload.image')->middleware('role');
 
-Route::post('get-token', 'MpesaController@getAccessToken');
-Route::post('registerUrls', 'MpesaController@registerUrls');
-Route::post('stkpush', 'MpesaController@stkPush');
+
+ //b2c 
+ Route::post('simulateb2c', 'MpesaController@b2cRequest');
+
+ Route::post('requestwithdrawal', 'MpesaController@requestWithdrawal')->name('requestwithdrawal');

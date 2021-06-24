@@ -9,6 +9,7 @@
 		<meta name="keywords" content="{{ $settings->keywords }}" />
 		<link rel="shortcut icon" href="{{ asset('public/img/favicon.ico') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
       
 		<title>Msaada</title>
 
@@ -71,6 +72,9 @@ a.page-link,
     background-color: {{$settings->color_default}};
     border-color: {{$settings->color_default}};
 }
+.hide {
+  display: none;
+}
 </style>
 @endif
 	<!-- Scripts -->
@@ -80,7 +84,7 @@ a.page-link,
         ]); ?>
     </script>
 </head>
-
+@include('errors.errors-forms') 
 <body>
  
 	<div id="fb-root"></div>
@@ -119,6 +123,7 @@ a.page-link,
     }
 });
 </script>
+<script src="https:js.stripe.com/v3/"></script>
 <div id="bodyContainer"></div>
 </body>
 </html>

@@ -9,6 +9,7 @@
 		<meta name="keywords" content="<?php echo e($settings->keywords, false); ?>" />
 		<link rel="shortcut icon" href="<?php echo e(asset('public/img/favicon.ico'), false); ?>" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
       
 		<title>Msaada</title>
 
@@ -71,6 +72,9 @@ a.page-link,
     background-color: <?php echo e($settings->color_default, false); ?>;
     border-color: <?php echo e($settings->color_default, false); ?>;
 }
+.hide {
+  display: none;
+}
 </style>
 <?php endif; ?>
 	<!-- Scripts -->
@@ -80,7 +84,7 @@ a.page-link,
         ]); ?>
     </script>
 </head>
-
+<?php echo $__env->make('errors.errors-forms', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
 <body>
  
 	<div id="fb-root"></div>
@@ -119,6 +123,7 @@ a.page-link,
     }
 });
 </script>
+<script src="https:js.stripe.com/v3/"></script>
 <div id="bodyContainer"></div>
 </body>
 </html>

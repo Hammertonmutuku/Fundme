@@ -17,5 +17,19 @@ class MpesaResponses extends Controller
       public function stkPush(Request $request) {
         log::info('skt Push endpoint hit');
         Log::info($request->all());
+        return [
+          'ResultCode' => 0,
+          'ResultDesc' => 'Accept Service',
+          'ThirdPartyTransID' => rand(3000, 10000)
+        ];
+      }
+      public function b2cCallback(Request $request) {
+        log::info('b2c endpoint hit');
+        Log::info($request->all());
+        return [
+          'ResultCode' => 0,
+          'ResultDesc' => 'Accept Service',
+          'ThirdPartyTransID' => rand(3000, 10000)
+        ];
       }
 }
