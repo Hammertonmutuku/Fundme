@@ -1,0 +1,550 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git check-ignore -v -z --stdin
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/ajax/campaigns.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/ajax/campaigns.blade.php
+> git cat-file -s fd1704043d9232f8bfff7103d1581e0f17e8ed64
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/app.blade.php
+> git cat-file -s e7a912f6314e8e8652bd5ee2c7299c9a87abc451
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/app/Http/Middleware/VerifyCsrfToken.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Middleware/VerifyCsrfToken.php
+> git cat-file -s 8602c01124963d98306351502ab3d5297b402026
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/includes/ajax-updates-campaign.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/includes/ajax-updates-campaign.blade.php
+> git cat-file -s fcfde0364afe239d002ad3da699710c8cd70163f
+> git show --textconv :Script/resources/views/includes/javascript_general.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/includes/javascript_general.blade.php
+> git cat-file -s 91ce95063cf083fa21e55e88750820fb2e584dda
+> git show --textconv :Script/resources/views/includes/list-campaigns.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/includes/list-campaigns.blade.php
+> git cat-file -s d1cc39f546c78b11299c4aa6ad367194e33d1b34
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/users/account.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/users/account.blade.php
+> git cat-file -s be8649824c482b6136f83e84b6ebe0a7cd9da8cd
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/auth/login.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/auth/login.blade.php
+> git cat-file -s bbd49def28791e9b5ee6f36d84fd7d62ccea6929
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/app/Http/Controllers/CampaignsController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/CampaignsController.php
+> git cat-file -s ac7fcc9e10ee6b026afd5d8078391abb0ecb6ff9
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/resources/views/auth/login.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/auth/login.blade.php
+> git cat-file -s bbd49def28791e9b5ee6f36d84fd7d62ccea6929
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/resources/views/users/account.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/users/account.blade.php
+> git cat-file -s be8649824c482b6136f83e84b6ebe0a7cd9da8cd
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/web.php
+> git cat-file -s e23013057f1262c7633b88dc76ad41f9919f47b3
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/app/Http/Middleware/VerifyCsrfToken.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Middleware/VerifyCsrfToken.php
+> git cat-file -s 8602c01124963d98306351502ab3d5297b402026
+> git show --textconv :Script/app/Http/Controllers/CampaignsController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/CampaignsController.php
+> git cat-file -s ac7fcc9e10ee6b026afd5d8078391abb0ecb6ff9
+> git show --textconv :Script/routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/web.php
+> git cat-file -s e23013057f1262c7633b88dc76ad41f9919f47b3
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/resources/views/users/account.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/users/account.blade.php
+> git cat-file -s be8649824c482b6136f83e84b6ebe0a7cd9da8cd
+> git show --textconv :Script/resources/views/users/password.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/users/password.blade.php
+> git cat-file -s d4abdae740ac614762fbe167bb215b7026346be8
+> git show --textconv :Script/resources/views/users/account.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/users/account.blade.php
+> git cat-file -s be8649824c482b6136f83e84b6ebe0a7cd9da8cd
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/views/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/app.blade.php
+> git cat-file -s e7a912f6314e8e8652bd5ee2c7299c9a87abc451
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/.env.example
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/.env.example
+> git cat-file -s 604b401fee832040c89063374140131681b82154
+> git show --textconv :Script/.env
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/.env
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git show --textconv :Script/routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/web.php
+> git cat-file -s e23013057f1262c7633b88dc76ad41f9919f47b3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/web.php
+> git cat-file -s e23013057f1262c7633b88dc76ad41f9919f47b3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/routes/api.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/api.php
+> git cat-file -s c641ca5e5b96c5fb325a43709dea06dd5b3cfade
+> git check-ignore -v -z --stdin
+> git show --textconv :Script/resources/js/bootstrap.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/js/bootstrap.js
+> git cat-file -s 8eaba1b97dd93518b6d091d720b4e9541d4f4636
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/routes/web.php
+> git cat-file -s e23013057f1262c7633b88dc76ad41f9919f47b3
+> git show --textconv :Script/public/js/app-functions.js
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/public/js/app-functions.js
+> git cat-file -s bbf71ed94634ee292dca7fc4b62c156884e63ed3
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/app/Http/Middleware/VerifyCsrfToken.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Middleware/VerifyCsrfToken.php
+> git cat-file -s 8602c01124963d98306351502ab3d5297b402026
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git show --textconv :Script/app/Http/Controllers/CampaignsController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/app/Http/Controllers/CampaignsController.php
+> git cat-file -s ac7fcc9e10ee6b026afd5d8078391abb0ecb6ff9
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :Script/resources/views/campaigns/create.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/Script/resources/views/campaigns/create.blade.php
+> git cat-file -s 92cd1b17f3d896b151a44b6ad97e2ee93f02a4f5
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(upstream:track)%00%(objectname) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
