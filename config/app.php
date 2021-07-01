@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => 'https://msaada254.herokuapp.com/',
+    'url' => env('APP_URL', 'https://msaada254.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
