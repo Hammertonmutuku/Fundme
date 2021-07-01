@@ -29,3 +29,7 @@
 [2021-07-01 14:26:07.000] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
 [2021-07-01 14:26:12.136] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
 [2021-07-01 14:26:23.606] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
+[2021-07-01 14:26:34.692] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
+[2021-07-01 14:26:48.352] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
+[2021-07-01 14:47:15.350] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"extensionId":{"value":"vscode.css-language-features","_lower":"vscode.css-language-features"},"activationEvent":"onLanguage:css"}
+[2021-07-01 14:47:15.351] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/css-language-features/client/dist/node/cssClientMain

@@ -1464,9 +1464,9 @@
             "folder": "file:///opt/lampp/htdocs/Fundme",
             "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
-                "mode": 0,
-                "x": 328,
-                "y": 449,
+                "mode": 1,
+                "x": 462,
+                "y": 653,
                 "width": 1386,
                 "height": 752
             }
