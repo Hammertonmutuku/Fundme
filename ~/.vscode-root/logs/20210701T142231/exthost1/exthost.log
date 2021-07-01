@@ -33,3 +33,16 @@
 [2021-07-01 14:26:48.352] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
 [2021-07-01 14:47:15.350] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"extensionId":{"value":"vscode.css-language-features","_lower":"vscode.css-language-features"},"activationEvent":"onLanguage:css"}
 [2021-07-01 14:47:15.351] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/css-language-features/client/dist/node/cssClientMain
+[2021-07-01 15:46:33.176] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"extensionId":{"value":"vscode.configuration-editing","_lower":"vscode.configuration-editing"},"activationEvent":"onLanguage:json"}
+[2021-07-01 15:46:33.176] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/configuration-editing/dist/configurationEditingMain
+[2021-07-01 15:46:33.193] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:json"}
+[2021-07-01 15:46:33.193] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/extension-editing/dist/extensionEditingMain
+[2021-07-01 15:46:33.214] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"extensionId":{"value":"vscode.json-language-features","_lower":"vscode.json-language-features"},"activationEvent":"onLanguage:json"}
+[2021-07-01 15:46:33.214] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/json-language-features/client/dist/node/jsonClientMain
+[2021-07-01 15:46:39.502] [exthost] [error] [vscode.json-language-features] provider FAILED
+[2021-07-01 15:46:39.502] [exthost] [error] Canceled: Canceled
+	at b.makeCancelError (/snap/code/67/usr/share/code/resources/app/extensions/json-language-features/client/dist/node/jsonClientMain.js:1:64563)
+	at b.handleFailedRequest (/snap/code/67/usr/share/code/resources/app/extensions/json-language-features/client/dist/node/jsonClientMain.js:1:64414)
+	at /snap/code/67/usr/share/code/resources/app/extensions/json-language-features/client/dist/node/jsonClientMain.js:1:24756
+	at runNextTicks (internal/process/task_queues.js:58:5)
+	at processImmediate (internal/timers.js:434:9)

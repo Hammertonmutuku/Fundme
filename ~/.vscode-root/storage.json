@@ -380,7 +380,8 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "Show &&Side Bar"
+                                    "label": "Show &&Side Bar",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleStatusbarVisibility",
@@ -1464,8 +1465,8 @@
             "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
                 "mode": 1,
-                "x": 379,
-                "y": 337,
+                "x": 345,
+                "y": 140,
                 "width": 1386,
                 "height": 752
             }
@@ -1489,7 +1490,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
             "activityBarWidth": 48,
-            "sideBarWidth": 0,
+            "sideBarWidth": 256,
             "statusBarHeight": 22,
             "windowBorder": false
         }
