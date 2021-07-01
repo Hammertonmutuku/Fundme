@@ -610,3 +610,52 @@ Open repository: /opt/lampp/htdocs/Fundme
 > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
 > git remote --verbose
 > git config --get commit.template
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/composer.json
+> git cat-file -s 4573ba876134db110d3e26c27e75153972feb421
+> git show --textconv :composer.json
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/composer.json
+> git config --get commit.template
+> git cat-file -s 4573ba876134db110d3e26c27e75153972feb421
+> git show --textconv :composer.json
+> git show --textconv :.htaccess
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/.htaccess
+> git cat-file -s 3558d34c2888191a3e21f80d652eaf29676485d1
+> git show --textconv :vendor/symfony/http-foundation/ServerBag.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/vendor/symfony/http-foundation/ServerBag.php
+> git cat-file -s 5e1094d5fe19f625da305b336ada235d6e2f02e6
+> git show --textconv :config/app.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/config/app.php
+> git cat-file -s f931c13d45f833203694ef2da226db845354bad1
+> git show --textconv :composer.json
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/composer.json
+> git cat-file -s 4573ba876134db110d3e26c27e75153972feb421
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
