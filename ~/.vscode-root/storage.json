@@ -41,8 +41,7 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor",
-                                    "enabled": false
+                                    "label": "&&Reopen Closed Editor"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -1464,10 +1463,10 @@
             "folder": "file:///opt/lampp/htdocs/Fundme",
             "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
-                "mode": 1,
-                "x": 204,
-                "y": 232,
-                "width": 1386,
+                "mode": 0,
+                "x": 91,
+                "y": 549,
+                "width": 1563,
                 "height": 752
             }
         },
