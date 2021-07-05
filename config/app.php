@@ -54,8 +54,6 @@ return [
 
     'url' => env('APP_URL', 'https://msaada254.herokuapp.com/'),
 
-    'asset_url' => env('ASSET_URL', 'https://msaada254.herokuapp.com/'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

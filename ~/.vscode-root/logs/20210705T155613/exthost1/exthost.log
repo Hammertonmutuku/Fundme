@@ -28,3 +28,6 @@
 [2021-07-05 15:56:18.679] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/testing-editor-contributions/dist/extension.js
 [2021-07-05 15:56:18.771] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
 [2021-07-05 15:56:18.771] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/github-authentication/dist/extension.js
+[2021-07-05 16:05:20.789] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 521
+[2021-07-05 16:05:25.890] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 522
+[2021-07-05 16:08:23.862] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 524
