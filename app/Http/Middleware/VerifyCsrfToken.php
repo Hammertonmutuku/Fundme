@@ -23,6 +23,7 @@ class VerifyCsrfToken extends Middleware
       'paypal/*',
       'rave/callback',
       'webhook/*',
+      
    
   
     ];
