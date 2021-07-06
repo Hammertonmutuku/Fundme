@@ -7,3 +7,7 @@ Open repository: /opt/lampp/htdocs/Fundme
 > git check-ignore -v -z --stdin
 > git check-ignore -v -z --stdin
 > git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /opt/lampp/htdocs/Fundme/app/Providers/AppServiceProvider.php
+> git check-ignore -v -z --stdin
