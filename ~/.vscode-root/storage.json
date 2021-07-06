@@ -105,11 +105,13 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save"
+                        "label": "&&Save",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As..."
+                        "label": "Save &&As...",
+                        "enabled": false
                     },
                     {
                         "id": "saveAll",
@@ -121,8 +123,7 @@
                     },
                     {
                         "id": "workbench.action.toggleAutoSave",
-                        "label": "A&&uto Save",
-                        "checked": true
+                        "label": "A&&uto Save"
                     },
                     {
                         "id": "submenuitem.28",
@@ -189,11 +190,13 @@
                     },
                     {
                         "id": "workbench.action.files.revert",
-                        "label": "Re&&vert File"
+                        "label": "Re&&vert File",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.closeActiveEditor",
-                        "label": "&&Close Editor"
+                        "label": "&&Close Editor",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.closeFolder",
@@ -242,11 +245,13 @@
                     },
                     {
                         "id": "actions.find",
-                        "label": "&&Find"
+                        "label": "&&Find",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.startFindReplaceAction",
-                        "label": "&&Replace"
+                        "label": "&&Replace",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -562,7 +567,8 @@
                     },
                     {
                         "id": "editor.action.toggleWordWrap",
-                        "label": "&&Word Wrap"
+                        "label": "&&Word Wrap",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.toggleMinimap",
@@ -1476,8 +1482,8 @@
     "themeBackground": "#1e1e1e",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///opt/lampp/htdocs/Practice/Fundme",
-            "backupPath": "/opt/lampp/htdocs/Practice/Fundme/~/.vscode-root/Backups/29c752af7180a31a3f22323f89f18e4e",
+            "folder": "file:///opt/lampp/htdocs/Fundme",
+            "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
             "uiState": {
                 "mode": 0,
                 "x": 108,
@@ -1505,7 +1511,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
             "activityBarWidth": 48,
-            "sideBarWidth": 170,
+            "sideBarWidth": 300,
             "statusBarHeight": 22,
             "windowBorder": false
         }
