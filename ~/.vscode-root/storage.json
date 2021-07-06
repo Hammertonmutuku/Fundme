@@ -4,6 +4,9 @@
         "entries": [
             {
                 "folderUri": "file:///opt/lampp/htdocs/Fundme"
+            },
+            {
+                "folderUri": "file:///opt/lampp/htdocs/Practice/Fundme"
             }
         ]
     },
@@ -41,8 +44,7 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor",
-                                    "enabled": false
+                                    "label": "&&Reopen Closed Editor"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -58,6 +60,17 @@
                                     },
                                     "enabled": true,
                                     "label": "/opt/lampp/htdocs/Fundme"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///opt/lampp/htdocs/Practice/Fundme",
+                                        "path": "/opt/lampp/htdocs/Practice/Fundme",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "/opt/lampp/htdocs/Practice/Fundme"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -576,7 +589,8 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back"
+                        "label": "&&Back",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -585,7 +599,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1461,13 +1476,13 @@
     "themeBackground": "#1e1e1e",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///opt/lampp/htdocs/Fundme",
-            "backupPath": "/opt/lampp/htdocs/Fundme/~/.vscode-root/Backups/9f1bbafaa8cbc96442fb2ba0f69ff4f0",
+            "folder": "file:///opt/lampp/htdocs/Practice/Fundme",
+            "backupPath": "/opt/lampp/htdocs/Practice/Fundme/~/.vscode-root/Backups/29c752af7180a31a3f22323f89f18e4e",
             "uiState": {
                 "mode": 0,
-                "x": 91,
-                "y": 549,
-                "width": 1563,
+                "x": 108,
+                "y": 328,
+                "width": 1386,
                 "height": 752
             }
         },
@@ -1490,7 +1505,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
             "activityBarWidth": 48,
-            "sideBarWidth": 256,
+            "sideBarWidth": 170,
             "statusBarHeight": 22,
             "windowBorder": false
         }

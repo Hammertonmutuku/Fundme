@@ -1,0 +1,8 @@
+[2021-07-06 10:03:36.123] [renderer1] [error] Error: Unable to read file '/opt/lampp/htdocs/Fundme/app/Providers/AppServiceProvider.php' (Error: Unable to resolve non-existing file '/opt/lampp/htdocs/Fundme/app/Providers/AppServiceProvider.php')
+    at Object.r [as createErrorWithActions] (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:9:490)
+    at i.handleSetInputError (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2470:164407)
+    at i.handleSetInputError (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2470:168465)
+    at i.setInput (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2470:164124)
+    at async u.doSetInput (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2470:132720)
+    at async u.openEditor (file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2470:131131)
+    at async file:///snap/code/67/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2680:16248
