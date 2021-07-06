@@ -37,3 +37,5 @@
 [2021-07-05 16:16:44.489] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
 [2021-07-05 16:55:25.015] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"extensionId":{"value":"vscode.typescript-language-features","_lower":"vscode.typescript-language-features"},"activationEvent":"onLanguage:javascript"}
 [2021-07-05 16:55:25.015] [exthost] [info] ExtensionService#loadCommonJSModule file:///snap/code/67/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2021-07-05 18:19:32.140] [exthost] [info] extension host terminating: renderer closed the socket
+[2021-07-05 18:19:33.178] [exthost] [info] exiting with code 0
