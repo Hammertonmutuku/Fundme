@@ -1,0 +1,28 @@
+Validating found git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :resources/views/includes/navbar.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/includes/navbar.blade.php
+> git cat-file -s 0950997e758f18c394294c84ae8026567f03f044
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :app/Http/Controllers/Auth/LoginController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/Http/Controllers/Auth/LoginController.php
+> git cat-file -s a0c0874c770978d4176d5bc4d27eb6ae9caada27
+> git show --textconv :resources/views/includes/navbar.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/includes/navbar.blade.php
+> git cat-file -s 0950997e758f18c394294c84ae8026567f03f044
+> git show --textconv :app/Http/Controllers/UserController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/Http/Controllers/UserController.php
+> git cat-file -s f2ebd67a900896ac70faf5300a972eccaa589b0d
+> git check-ignore -v -z --stdin
+> git show --textconv :resources/views/users/account.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/users/account.blade.php
+> git cat-file -s 968c5a33e78fea559d4167825978932fd009d525

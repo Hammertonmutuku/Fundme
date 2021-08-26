@@ -1,0 +1,45 @@
+[2021-07-14 14:22:03.993] [main] [info] update#setState idle
+[2021-07-14 14:22:04.000] [main] [info] window: using vscode-file:// protocol and V8 cache options: bypassHeatCheck
+[2021-07-14 14:22:05.392] [main] [error] vscode-file: Refused to load resource /snap/code/68/usr/share/code/resources/app/extensions/theme-seti/icons/seti.woff from vscode-file: protocol (original URL: vscode-file://vscode-app/snap/code/68/usr/share/code/resources/app/extensions/theme-seti/icons/seti.woff)
+[2021-07-14 14:22:34.000] [main] [info] update#setState checking for updates
+[2021-07-14 14:22:34.005] [main] [info] update#setState idle
+[2021-07-14 15:22:34.606] [main] [info] update#setState checking for updates
+[2021-07-14 15:22:34.616] [main] [info] update#setState idle
+[2021-07-14 16:22:34.618] [main] [info] update#setState checking for updates
+[2021-07-14 16:22:34.622] [main] [info] update#setState idle
+[2021-07-14 17:22:34.720] [main] [info] update#setState checking for updates
+[2021-07-14 17:22:34.723] [main] [info] update#setState idle
+[2021-07-14 18:22:34.821] [main] [info] update#setState checking for updates
+[2021-07-14 18:22:34.825] [main] [info] update#setState idle
+[2021-07-14 19:22:34.922] [main] [info] update#setState checking for updates
+[2021-07-14 19:22:34.934] [main] [info] update#setState idle
+[2021-07-14 20:22:35.031] [main] [info] update#setState checking for updates
+[2021-07-14 20:22:35.035] [main] [info] update#setState idle
+[2021-07-14 21:22:35.118] [main] [info] update#setState checking for updates
+[2021-07-14 21:22:35.122] [main] [info] update#setState idle
+[2021-07-14 22:22:35.212] [main] [info] update#setState checking for updates
+[2021-07-14 22:22:35.218] [main] [info] update#setState idle
+[2021-07-14 23:22:35.275] [main] [info] update#setState checking for updates
+[2021-07-14 23:22:35.280] [main] [info] update#setState idle
+[2021-07-15 00:22:35.378] [main] [info] update#setState checking for updates
+[2021-07-15 00:22:35.383] [main] [info] update#setState idle
+[2021-07-15 01:22:35.478] [main] [info] update#setState checking for updates
+[2021-07-15 01:22:35.481] [main] [info] update#setState idle
+[2021-07-15 02:22:35.566] [main] [info] update#setState checking for updates
+[2021-07-15 02:22:35.570] [main] [info] update#setState idle
+[2021-07-15 06:51:44.116] [main] [info] update#setState checking for updates
+[2021-07-15 06:51:44.123] [main] [info] update#setState idle
+[2021-07-15 08:42:02.108] [main] [info] update#setState checking for updates
+[2021-07-15 08:42:02.114] [main] [info] update#setState idle
+[2021-07-15 09:42:02.694] [main] [info] update#setState checking for updates
+[2021-07-15 09:42:02.705] [main] [info] update#setState idle
+[2021-07-15 10:42:02.774] [main] [info] update#setState checking for updates
+[2021-07-15 10:42:02.779] [main] [info] update#setState idle
+[2021-07-15 11:42:02.830] [main] [info] update#setState checking for updates
+[2021-07-15 11:42:02.834] [main] [info] update#setState idle
+[2021-07-15 12:42:02.929] [main] [info] update#setState checking for updates
+[2021-07-15 12:42:02.933] [main] [info] update#setState idle
+[2021-07-15 13:42:03.030] [main] [info] update#setState checking for updates
+[2021-07-15 13:42:03.036] [main] [info] update#setState idle
+[2021-07-15 14:42:03.130] [main] [info] update#setState checking for updates
+[2021-07-15 14:42:03.133] [main] [info] update#setState idle

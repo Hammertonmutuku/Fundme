@@ -1,0 +1,57 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :.env
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/.env
+> git cat-file -s 795fcd9acf1de21f6e131ed80e41112aa4129d50
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :resources/views/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/app.blade.php
+> git cat-file -s e36b96628af71c0530b60916e376bbe45b48f156
+> git check-ignore -v -z --stdin
+> git show --textconv :resources/views/includes/navbar.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/includes/navbar.blade.php
+> git cat-file -s 0950997e758f18c394294c84ae8026567f03f044
+> git show --textconv :.env
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/.env
+> git cat-file -s 795fcd9acf1de21f6e131ed80e41112aa4129d50
+> git show --textconv :resources/views/includes/navbar.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/includes/navbar.blade.php
+> git cat-file -s 0950997e758f18c394294c84ae8026567f03f044
+> git show --textconv :resources/views/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/app.blade.php
+> git cat-file -s e36b96628af71c0530b60916e376bbe45b48f156
+> git check-ignore -v -z --stdin
+> git show --textconv :resources/views/layouts/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/layouts/app.blade.php
+> git cat-file -s b78f37e81e860580a2d3e9954115e16f6b827e12
+> git show --textconv :resources/views/app.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/app.blade.php
+> git cat-file -s e36b96628af71c0530b60916e376bbe45b48f156
+> git check-ignore -v -z --stdin
+> git show --textconv :resources/views/auth/login.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/auth/login.blade.php
+> git cat-file -s bbd49def28791e9b5ee6f36d84fd7d62ccea6929
+> git check-ignore -v -z --stdin
+> git show --textconv :routes/web.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/routes/web.php
+> git cat-file -s c67a2083223c67c4beac98c3043056d668ae41fe
+> git show --textconv :resources/views/auth/login.blade.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/resources/views/auth/login.blade.php
+> git cat-file -s bbd49def28791e9b5ee6f36d84fd7d62ccea6929
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :app/Http/Controllers/Auth/LoginController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/Http/Controllers/Auth/LoginController.php
+> git cat-file -s a0c0874c770978d4176d5bc4d27eb6ae9caada27

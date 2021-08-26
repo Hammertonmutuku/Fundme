@@ -44,7 +44,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -101,6 +102,10 @@
                         "label": "Save Workspace As..."
                     },
                     {
+                        "id": "workbench.action.duplicateWorkspaceInNewWindow",
+                        "label": "Duplicate Workspace"
+                    },
+                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -136,6 +141,10 @@
                                 {
                                     "id": "settings.filterByOnline",
                                     "label": "&&Online Services Settings"
+                                },
+                                {
+                                    "id": "settings.filterByTelemetry",
+                                    "label": "Telemetry Settings"
                                 },
                                 {
                                     "id": "workbench.view.extensions",
@@ -970,12 +979,8 @@
             "Help": {
                 "items": [
                     {
-                        "id": "workbench.action.showWelcomePage",
-                        "label": "&&Welcome"
-                    },
-                    {
                         "id": "workbench.action.openWalkthrough",
-                        "label": "Getting Started"
+                        "label": "Welcome"
                     },
                     {
                         "id": "workbench.action.showInteractivePlayground",

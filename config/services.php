@@ -37,7 +37,7 @@ return [
     'google' => [
                 'client_id' => env('GOOGLE_CLIENT_ID'),
                 'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-                'redirect' => 'http://localhost/Fundme/Script/register/google/callback', // IMPORTANT NOT REMOVE /oauth/google/callback
+                'redirect' => 'https://msaada254.herokuapp.com/register/google/callback', // IMPORTANT NOT REMOVE /oauth/google/callback
             ],
     'facebook' => [
                 'client_id' => env('FACEBOOK_CLIENT_ID'),

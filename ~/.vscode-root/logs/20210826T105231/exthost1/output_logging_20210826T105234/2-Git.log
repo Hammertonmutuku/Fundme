@@ -1,0 +1,36 @@
+Validating found git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /opt/lampp/htdocs/Fundme
+> git status -z -u
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :app/Http/Controllers/Auth/LoginController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/Http/Controllers/Auth/LoginController.php
+> git cat-file -s a0c0874c770978d4176d5bc4d27eb6ae9caada27
+> git show --textconv :app/Http/Controllers/SocialAuthController.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/Http/Controllers/SocialAuthController.php
+> git cat-file -s f5209f2b38c182ee4ca217e3f7e7d1fa628e8b9e
+> git check-ignore -v -z --stdin
+> git show --textconv :app/SocialAccountService.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/app/SocialAccountService.php
+> git cat-file -s 78265b9bbefa570ed2d3a6c17602ead7e52b3c61
+> git check-ignore -v -z --stdin
+> git show --textconv :config/services.php
+> git ls-files --stage -- /opt/lampp/htdocs/Fundme/config/services.php
+> git cat-file -s 4c75162b09a57c47bdb922f45a6f0028125765d4
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track) refs/heads/master refs/remotes/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template

@@ -1,0 +1,5 @@
+[2021-08-26 10:15:37.177] [main] [info] update#setState idle
+[2021-08-26 10:15:37.183] [main] [info] window: using vscode-file:// protocol and V8 cache options: bypassHeatCheck
+[2021-08-26 10:15:39.477] [main] [error] vscode-file: Refused to load resource /snap/code/71/usr/share/code/resources/app/extensions/theme-seti/icons/seti.woff from vscode-file: protocol (original URL: vscode-file://vscode-app/snap/code/71/usr/share/code/resources/app/extensions/theme-seti/icons/seti.woff)
+[2021-08-26 10:16:07.179] [main] [info] update#setState checking for updates
+[2021-08-26 10:16:07.180] [main] [info] update#setState idle
